@@ -1,4 +1,4 @@
-public class LeapYear {
+    public class LeapYear {
     private int inputYear;
     private boolean isLeapYear;
 
