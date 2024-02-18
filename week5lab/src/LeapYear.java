@@ -20,14 +20,6 @@ public  class LeapYear {
     }
 
     public void setLeapYear(){
-        if (inputYear % 4 != 0) {
-            isLeapYear = false;
-        } else if (inputYear % 100 == 0) {
-            isLeapYear = false;
-        } else if (inputYear % 400 == 0) {
-            isLeapYear = true;
-        } else {
-            isLeapYear = true;
-        }
+        isLeapYear = (inputYear % 4 != 0 && (inputYear % 100 != 0 || inputYear % 400 == 0));
     }
 }
