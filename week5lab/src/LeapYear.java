@@ -1,4 +1,4 @@
-public  class LeapYear {
+public class LeapYear {
     private int inputYear;
     private boolean isLeapYear;
 
@@ -20,6 +20,6 @@ public  class LeapYear {
     }
 
     public void setLeapYear(){
-        isLeapYear = (inputYear % 4 != 0 && (inputYear % 100 != 0 || inputYear % 400 == 0));
+        isLeapYear = (inputYear % 4 == 0 && (inputYear % 100 != 0 || inputYear % 400 == 0));
     }
 }
