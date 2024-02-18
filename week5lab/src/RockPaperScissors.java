@@ -29,15 +29,28 @@ public class RockPaperScissors {
     }
 
     public String checkResult(int userInput) {
+        String resultMessage;
         UserOptions userOption = UserOptions.getOption(userInput);
-        if (userOption == generatedOption) return "It's a tie!";
 
-        return switch (userOption) {
-            case ROCK -> (generatedOption == UserOptions.SCISSORS) ? "You Win!" : "You Lose! Try Again";
-            case PAPER -> (generatedOption == UserOptions.ROCK) ? "You Win!" : "You Lose! Try Again";
-            case SCISSORS -> (generatedOption == UserOptions.PAPER) ? "You Win!" : "You Lose! Try Again";
+        String userChoice = userOption.toString();
+        String computerChoice = generatedOption.toString();
+
+        if (userOption == generatedOption) {
+            return String.format("You chose %s, the Computer chose %s. ", userChoice, computerChoice)
+        } else {
+
+        boolean result = switch (userOption) {
+            case ROCK -> generatedOption == UserOptions.SCISSORS;
+            case PAPER -> generatedOption == UserOptions.ROCK;
+            case SCISSORS -> generatedOption == UserOptions.PAPER;
             default -> throw new IllegalStateException("Unexpected value: " + userOption);
         };
+
+        resultMessage = String.format("You chose %s, the Computer chose %s. ", userChoice, computerChoice)
+            + (result ? "You Win!" : "You Lose! Try Again");
+        }
+
+        return resultMessage;
     }
 
     public String play(int userInput) {
