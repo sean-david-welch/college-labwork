@@ -1,4 +1,4 @@
-package org.labs.ticketprices;
+package Cinema;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;

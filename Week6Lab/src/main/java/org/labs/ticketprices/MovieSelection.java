@@ -2,15 +2,13 @@ package org.labs.ticketprices;
 
 import java.util.Scanner;
 
-public class MovieSeletion {
+public class MovieSelection {
     private final Scanner scanner;
     private MovieOptions selectedMovie;
 
-    public enum MovieOptions {
-        DRAMA, COMEDY, ACTION;
-    }
+    public enum MovieOptions { DRAMA, COMEDY, ACTION }
 
-    public MovieSeletion(Scanner scanner) {
+    public MovieSelection(Scanner scanner) {
         this.scanner = scanner;
     }
 
@@ -24,12 +22,12 @@ public class MovieSeletion {
             System.out.println(options.name());
         }
 
-        boolean isAvailable = false;
-        while (!isAvailable) {
+        boolean isMovieAvailable = false;
+        while (!isMovieAvailable) {
             try {
                 String input = scanner.nextLine().toUpperCase();
                 selectedMovie = MovieOptions.valueOf(input);
-                isAvailable = true;
+                isMovieAvailable = true;
             } catch (IllegalArgumentException err) {
                 System.out.println("That's not available! The options are:");
                 for (MovieOptions options : MovieOptions.values()) {
