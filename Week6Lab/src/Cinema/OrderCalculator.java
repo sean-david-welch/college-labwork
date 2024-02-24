@@ -1,4 +1,4 @@
-package Cinema;
+package cinema;
 
 import java.util.Scanner;
 
@@ -6,8 +6,6 @@ public class OrderCalculator {
     private final Scanner scanner;
     private final MovieSelection movieSelection;
     private final ConcessionSelection concessionSelection;
-
-    private int numberTickets;
 
     public OrderCalculator(Scanner scanner, MovieSelection movieSelection, ConcessionSelection concessionSelection) {
         this.scanner = scanner;
@@ -20,6 +18,7 @@ public class OrderCalculator {
 
         movieSelection.chooseMovieOption();
         try {
+            System.out.println("How many tickets would you like?:");
             int input = scanner.nextInt();
             totalPrice *= input;
         } catch (IllegalArgumentException err) {

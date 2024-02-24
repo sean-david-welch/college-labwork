@@ -1,19 +1,14 @@
-package Cinema;
+package cinema;
 
 import java.util.Scanner;
 
 public class ConcessionSelection {
     private final Scanner scanner;
-    private SodaOptions selectedSoda;
 
     public enum SodaOptions { COKE, SPRITE, FANTA }
 
     public ConcessionSelection(Scanner scanner) {
         this.scanner = scanner;
-    }
-
-    public SodaOptions getSelectedSoda() {
-        return selectedSoda;
     }
 
     private void chooseSodaType() {
@@ -26,7 +21,7 @@ public class ConcessionSelection {
         while (!validSodaChoice) {
             try {
                 String sodaChoice = scanner.nextLine().toUpperCase();
-                selectedSoda = SodaOptions.valueOf(sodaChoice);
+                SodaOptions.valueOf(sodaChoice);
                 validSodaChoice = true;
             } catch (IllegalArgumentException err) {
                 System.out.println("Invalid soda choice. Please try again.");
@@ -38,12 +33,14 @@ public class ConcessionSelection {
         System.out.println("Would you like to buy some popcorn? (yes/no)");
 
         while (true) {
-            String input = scanner.nextLine().toLowerCase();
-            if (input.equals("yes")) {
-                return true;
-            } else if (input.equals("no")) {
-                return false;
-            } else {
+            try {
+                String input = scanner.nextLine().toLowerCase();
+                if (input.equals("yes")) {
+                    return true;
+                } else if (input.equals("no")) {
+                    return false;
+                }
+            } catch (IllegalArgumentException err) {
                 System.out.println("Please just tell me yes or no :/");
             }
         }
@@ -53,16 +50,17 @@ public class ConcessionSelection {
         System.out.println("Would you like to purchase a soda? (yes/no)");
 
         while (true) {
-            String input = scanner.nextLine().toLowerCase();
-            if (input.equals("yes")) {
-                chooseSodaType();
-                return true;
-            } else if (input.equals("no")) {
-                return false;
-            } else {
-                System.out.println("Please just tell me yes or no :/");
+            try {
+                String input = scanner.nextLine().toLowerCase();
+                if (input.equals("yes")) {
+                    chooseSodaType();
+                    return true;
+                } else if (input.equals("no")) {
+                    return false;
+                }
+            } catch (IllegalArgumentException err) {
+                System.out.println("We dont sell that here. Please choose from: Coke, Sprite or Fanta!");
             }
         }
     }
-
 }
