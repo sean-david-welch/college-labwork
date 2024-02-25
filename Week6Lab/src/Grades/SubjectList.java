@@ -3,7 +3,8 @@ package grades;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
-import static java.lang.System.*;
+
+import static java.lang.System.out;
 
 public class SubjectList {
     private final Scanner scanner;
@@ -14,14 +15,15 @@ public class SubjectList {
 
     public SubjectList(Scanner scanner) { this.scanner = scanner; }
 
-    public void chooseSubjectOptions(){
+    public List<String> chooseSubjectOptions(){
         out.println("What Subjects do you take? Please give them to me in a list :)");
         for (SubjectOptions subjectOptions : SubjectOptions.values()) {
             out.println(subjectOptions.name());
         }
 
+        List<String> chosenSubjects = new ArrayList<>();
+
         while (true) {
-            List<String> chosenSubjects = new ArrayList<>();
 
             try {
                 String inputLine = scanner.nextLine();
@@ -36,7 +38,7 @@ public class SubjectList {
                     }
                 }
 
-                if (confirmSubjectChoice(chosenSubjects)) {
+                if (this.confirmSubjectChoice(chosenSubjects)) {
                     out.println("Subject choices confirmed!");
                     break;
                 } else {
@@ -49,9 +51,11 @@ public class SubjectList {
                 }
             }
         }
+
+        return chosenSubjects;
     }
 
-    public boolean confirmSubjectChoice(List<String> chosenSubjects) {
+    private boolean confirmSubjectChoice(List<String> chosenSubjects) {
         out.println("Chosen subjects: " + chosenSubjects + "." + "Is this list correct? (yes/no)");
 
         while (true) { // Keep asking until valid input

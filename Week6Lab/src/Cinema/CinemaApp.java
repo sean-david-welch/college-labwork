@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 import static java.lang.System.*;
 
-public class TicketPriceApp {
+public class CinemaApp {
     public static void main(String[] args) {
         try (Scanner scanner = new Scanner(in)) {
             out.println("Hi! Welcome to the really old and expensive movie theater. Let's get your order started.");
