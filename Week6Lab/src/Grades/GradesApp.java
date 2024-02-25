@@ -1,4 +1,4 @@
-package Grades;
+package grades;
 
 public class GradesApp {
     public static void main(String[] args) {
