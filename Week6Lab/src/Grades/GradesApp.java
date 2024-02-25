@@ -18,13 +18,17 @@ public class GradesApp {
             int averageGrade = gradesCalculator.getAverageGrades();
 
             if (averageGrade < 40) {
-                out.println("Unfortunately, your average grade is below 40. This means you expelled.");
+                out.println("Unfortunately, your average grade is below 40. " + averageGrade + " is an F. " +
+                        " This means you're expelled.");
             } else if (averageGrade < 60) {
-                out.println("Your average grade is below 60. You can stay.");
+                out.println("Your average grade is below 60. " + averageGrade + " is a D. " +
+                        "Improve it soon or you're dust.");
             } else if (averageGrade < 80) {
-                out.println("Your average grade is satisfactory, but there's room for improvement.");
+                out.println("Your average grade is satisfactory, " + averageGrade + "is a B. " +
+                        "but there's room for improvement.");
             } else {
-                out.println("Congratulations! Your average grade is excellent. I'm making you the class representative!");
+                out.println("Congratulations! Your average grade is excellent. " + averageGrade + " is an A." +
+                        "I'm making you the class representative!");
             }
         } catch (InputMismatchException err) {
             out.println("An input error was made along the way. Try again!");
