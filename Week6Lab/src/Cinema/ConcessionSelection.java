@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class ConcessionSelection {
     private final Scanner scanner;
 
-    public enum SodaOptions { COKE, SPRITE, FANTA }
+    public enum SodaOptions { COKE, SPRITE, PEPSI, FANTA }
 
     public ConcessionSelection(Scanner scanner) {
         this.scanner = scanner;
@@ -24,7 +24,7 @@ public class ConcessionSelection {
                 SodaOptions.valueOf(sodaChoice);
                 validSodaChoice = true;
             } catch (IllegalArgumentException err) {
-                System.out.println("Invalid soda choice. Please try again.");
+                System.out.println("We don't serve that here. We only have: coke, sprite, pepsi, fanta.");
             }
         }
     }
