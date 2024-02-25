@@ -21,15 +21,18 @@ public class OrderCalculator {
             System.out.println("How many tickets would you like?:");
             int input = scanner.nextInt();
             totalPrice *= input;
+            scanner.nextLine();
         } catch (IllegalArgumentException err) {
             System.out.println("Give me a valid number please");
         }
 
         double popcornPrice = 4.99;
-        if (concessionSelection.choosePopcorn()) totalPrice += popcornPrice;
+        int popcornQuantity = concessionSelection.choosePopcorn();
+        totalPrice += (popcornPrice * popcornQuantity);
         
         double sodaPrice = 3.99;
-        if (concessionSelection.chooseSoda()) totalPrice += sodaPrice;
+        int sodaQuantity = concessionSelection.chooseSodaQuantity();
+        totalPrice += (sodaPrice * sodaQuantity);
 
         return totalPrice;
     }

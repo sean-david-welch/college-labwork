@@ -24,10 +24,10 @@ public class SubjectList {
         List<String> chosenSubjects = new ArrayList<>();
 
         while (true) {
-
             try {
                 String inputLine = scanner.nextLine();
-                String[] subjects = inputLine.split(" ");
+                String[] subjects = inputLine.split("[,\\s]+");
+
 
                 for (String subject : subjects) {
                     try {
@@ -56,16 +56,16 @@ public class SubjectList {
     }
 
     private boolean confirmSubjectChoice(List<String> chosenSubjects) {
-        out.println("Chosen subjects: " + chosenSubjects + "." + "Is this list correct? (yes/no)");
+        out.println("Chosen subjects: " + chosenSubjects + "." + "Is this list correct? (y/n)");
 
-        while (true) { // Keep asking until valid input
+        while (true) {
             String input = scanner.nextLine().toLowerCase();
-            if (input.equals("yes")) {
+            if (input.equals("y") || input.equals("yes")) {
                 return true;
-            } else if (input.equals("no")) {
+            } else if (input.equals("n") || input.equals("no")) {
                 return false;
             } else {
-                out.println("Input is not valid. Please confirm (yes/no)!");
+                out.println("Input is not valid. Please confirm (y/n)!");
             }
         }
     }
