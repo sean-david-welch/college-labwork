@@ -1,0 +1,81 @@
+@import url('https://fonts.googleapis.com/css2?family=Bungee+Spice&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: 'Roboto', sans-serif;
+}
+
+html {
+	scroll-behavior: smooth;
+	overflow-x: hidden;
+	max-width: 100%;
+}
+
+body {
+	height: 100vh;
+	background-image: linear-gradient(
+		to bottom,
+		rgb(229, 217, 200) 0%,
+		rgb(209, 192, 168) 50%,
+		rgb(229, 217, 200) 100%
+	);
+	color: rgb(49, 49, 49);
+}
+
+html::-webkit-scrollbar {
+	width: 0.3vw;
+}
+
+html::-webkit-scrollbar-thumb {
+	background-color: #333;
+	border-radius: 10px;
+}
+
+html::-webkit-scrollbar-track {
+	background-color: #333;
+}
+
+main {
+	height: 100vh;
+}
+
+a {
+	color: inherit;
+	text-decoration: none;
+	background-color: transparent;
+}
+
+/* navbar styles */
+nav {
+	display: flex;
+	flex-direction: row;
+	margin: auto;
+	position: fixed;
+	top: 0;
+	width: 100vw;
+	background-color: beige;
+}
+
+.nav-logo {
+	height: 100px;
+}
+
+/* Footer styles */
+footer {
+	display: flex;
+	flex-direction: row;
+	margin: auto;
+	background-color: beige;
+}
+
+.footer-logo {
+	height: 100px;
+}
+
+/* index page */
+.header-image {
+	height: 200px;
+}
