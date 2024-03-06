@@ -244,3 +244,11 @@ footer {
 		transform: scale(102%);
 	}
 }
+
+.white-svg svg {
+	margin-top: 0.2rem;
+	margin-left: 0.5rem;
+	fill: white;
+	width: 15px;
+	height: 15px;
+}
