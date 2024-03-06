@@ -36,7 +36,7 @@
         <p class="subheading">Press the button below to begin the adoption process of your new
             family member:</p>
 
-        <button class="btn" onclick="dialog.showModal()"">Adoption Form
+        <button class="btn" onclick="d.showModal()"">Adoption Form
             <span class=" white-svg">
             <svg xmlns=" http://www.w3.org/2000/svg"
                 viewBox="0 0 512 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
@@ -46,12 +46,49 @@
             </span>
         </button>
 
-        <dialog class="dialog" id="dialog">
-            <form>
+        <dialog class="dialog" id="d">
+            <form class="form">
+                <h1 class="section-heading">Adoption Form</h1>
 
-                <button type="submit" onsubmit="dialog.close()">Submit</button>
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" placeholder="Enter your name" required>
+
+                <label for="phone">Phone Number:</label>
+                <input type="tel" id="phone" name="phone" placeholder="Enter your phone number"
+                    required pattern="^\d{2}[\s-]\d{7}$">
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" placeholder="Enter your email" required>
+
+                <label for="pet">Pet:</label>
+                <select id="pet" name="pet">
+                    <option value="">Select your pet:</option>
+                    <option value="tigr">Tigr</option>
+                    <option value="fluffy">Fluffy</option>
+                    <option value="ringo">Ringo</option>
+                    <option value="micky">Micky</option>
+                </select>
+
+                <label for="terms">
+                    <input type="checkbox" id="terms" name="terms" required>
+                    I agree to the terms and conditions.
+                </label>
+
+                <label for="newsletter">
+                    <input type="checkbox" id="terms" name="terms" required>
+                    I want to subscribe to the newsletter.
+                </label>
+
+                <label for="comments">Comments:</label>
+                <textarea id="comments" name="comments" rows="5"
+                    placeholder="Leave a comment (optional)">
+                </textarea>
+
+                <button onsubmit="d.close()" type="submit">Submit</button>
             </form>
+
         </dialog>
+
     </main>
 
     <footer class="footer">
