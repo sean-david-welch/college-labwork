@@ -29,3 +29,4 @@
 
 -   Some ideas for styles came from my previous projects. Specifically a full stack application I build for Farmec Ireland
 -   The references to those styles (translated from tailwind css -> conventional css in this project) can be found here: https://github.com/sean-david-welch/farmec-v2/tree/main/client/src/styles
+-   used this website to reference hex codes for colors: https://www.color-hex.com/color-palette/88213
