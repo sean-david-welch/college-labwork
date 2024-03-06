@@ -13,53 +13,94 @@
 
 <body>
     <nav class="navbar">
-        <img src="../assets/logo.png" class="nav-logo" alt="navbar-logo">
+        <a href="index.html">
+            <img src="../assets/logo.png" class="nav-logo" alt="navbar-logo">
+        </a>
 
         <ul class="nav-links">
-            <a href="index.html">
-                <li class="nav-link-item">Home</li>
-            </a>
-            <a href="pets.html">
-                <li class="nav-link-item">Pets</li>
-            </a>
-            <a href="adopt.html">
-                <li class="nav-link-item">Adoption</li>
-            </a>
+            <li class="nav-link-item">
+                <a href="index.html" class="btn">Home</a>
+            </li>
+            <li class="nav-link-item">
+                <a href="pets.html" class="btn">Pets</a>
+            </li>
+            <li class="nav-link-item">
+                <a href="adopt.html" class="btn">Adoption</a>
+            </li>
         </ul>
+
     </nav>
 
     <main class="main-home">
 
-        <h1 class="section-heading">Pet's World</h1>
+        <h1 class="section-heading">Pets World</h1>
 
 
         <div class="info">
-            <img src="../assets/pets.jpg" class="header-image" alt="Pets Image">
-            <h1>Info</h1>
-            <p>info description</p>
+            <a href="pets.html">
+                <img src="../assets/pets.jpg" class="header-image" alt="Pets Image">
+            </a>
+
+            <h1>Information</h1>
+
+            <ul class="info-list">
+                <li class="info-list-item">hi</li>
+                <li class="info-list-item">hi</li>
+                <li class="info-list-item">hi</li>
+                <li class="info-list-item">hi</li>
+                <li class="info-list-item">hi</li>
+            </ul>
         </div>
 
         <table class="contact-table">
-            <th>Contact</th>
-            <tr>Phone</tr>
+            <tr>
+                <th>Branch</th>
+                <th>Contact Name</th>
+                <th>Phone Number</th>
+                <th>Email Address</th>
+            </tr>
+            <tr>
+                <td>Dublin</td>
+                <td>John Delaney</td>
+                <td>0875566392</td>
+                <td>john@petsworld.ie</td>
+            </tr>
+            <tr>
+                <td>Dublin</td>
+                <td>Max Byrne</td>
+                <td>0834212345</td>
+                <td>max@petsworld.ie</td>
+            </tr>
+            <tr>
+                <td>Dublin</td>
+                <td>Oisin O'Malley</td>
+                <td>0867538209</td>
+                <td>oisin@petsworld.ie</td>
+            </tr>
         </table>
     </main>
 
     <footer class="footer">
 
         <ul class="footer-links">
-            <a href="index.html">
-                <li class="footer-item">Home</li>
-            </a>
-            <a href="pets.html">
-                <li class="footer-item">Pets</li>
-            </a>
-            <a href="adopt.html">
-                <li class="footer-item">Adoption</li>
-            </a>
+            <li class="footer-item">
+                <a href="index.html"><button class="btn">Home</button></a>
+            </li>
+            <li class="footer-item">
+                <a href="pets.html"><button class="btn">Pets</button></a>
+            </li>
+            <li class="footer-item">
+                <a href="adopt.html"><button class="btn">Adoption</button></a>
+            </li>
         </ul>
 
-        <img src="../assets/logo-transparent.png" class="footer-logo" alt="footer logo image">
+
+        <a href="http://www.dogstrust.ie" target="_blank">
+            <img src="../assets/logo-transparent.png" class="footer-logo" alt="footer logo image">
+        </a>
+
+        <h2 class="copyright">&copy; 2024 Pets World</h2>
+
     </footer>
 
 </body>

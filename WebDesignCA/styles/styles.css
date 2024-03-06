@@ -8,6 +8,7 @@
 	padding: 0;
 	box-sizing: border-box;
 	font-family: 'Roboto', sans-serif;
+	transition: all 0.7s ease-in-out;
 }
 
 html {
@@ -42,6 +43,7 @@ html::-webkit-scrollbar-track {
 
 main {
 	display: flex;
+	min-height: 100vh;
 	flex-direction: column;
 	text-align: center;
 	align-items: center;
@@ -66,6 +68,43 @@ li {
 	margin: 0;
 }
 
+button {
+	background-color: transparent;
+	border: none;
+	padding: 0;
+	font: inherit;
+	cursor: pointer;
+}
+
+/* Utility Style */
+.section-heading {
+	margin: 0;
+	padding: 0;
+	font-size: xx-large;
+	text-decoration: underline;
+}
+
+.btn {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+
+	background-color: #42428b;
+	border-radius: 0.75rem;
+	padding: 0.5rem 2rem;
+	color: white;
+	font-size: 14px;
+	font-weight: normal;
+	white-space: nowrap;
+
+	cursor: pointer;
+	&:hover {
+		background-color: #000080;
+		transform: scale(102%);
+	}
+}
+
 /* navbar styles */
 nav {
 	display: flex;
@@ -77,11 +116,18 @@ nav {
 	top: 0;
 	width: 100vw;
 	background-color: #7d95b9;
+	border-bottom: 2px solid #7d95b9;
+	&:hover {
+		border-bottom: 2px solid #000080;
+	}
 }
 
 .nav-logo {
 	height: 75px;
 	margin: auto 10rem;
+	&:hover {
+		transform: scale(105%);
+	}
 }
 
 .nav-links {
@@ -99,14 +145,25 @@ nav {
 footer {
 	display: flex;
 	flex-direction: column;
+	position: static;
+	bottom: 0;
+	padding: 1.5rem 0;
 	margin: auto;
 	background-color: #7d95b9;
 	align-items: center;
 	text-align: center;
+	border-top: 2px solid #7d95b9;
+	&:hover {
+		border-top: 2px solid #000080;
+	}
 }
 
 .footer-logo {
 	width: 200px;
+	margin-right: 1rem;
+	&:hover {
+		transform: scale(105%);
+	}
 }
 
 .footer-links {
@@ -116,17 +173,30 @@ footer {
 
 .footer-item {
 	margin: 2rem 10rem;
+	font-size: large;
 }
+
+.copyright {
+	margin: 1rem;
+}
+
 /* index page */
 .header-image {
 	width: 500px;
 	margin: 2rem auto;
 	border-radius: 1rem;
+	&:hover {
+		transform: scale(102%);
+	}
 }
 
-/* Utility Style */
-.section-heading {
-	margin: 0;
-	padding: 0;
-	font-size: xx-large;
+.contact-table {
+	border-collapse: collapse;
+	margin: 2rem auto;
+}
+
+.contact-table th,
+.contact-table td {
+	border: 2px solid #000080;
+	padding: 2rem;
 }
