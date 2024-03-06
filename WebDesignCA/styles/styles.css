@@ -13,6 +13,7 @@
 
 html {
 	scroll-behavior: smooth;
+	scroll-padding-top: 20rem;
 	overflow-x: hidden;
 	max-width: 100%;
 }
@@ -49,6 +50,7 @@ main {
 	align-items: center;
 	margin: auto;
 	padding: 8.5rem 0 5rem 0;
+	z-index: 0;
 }
 
 a {
@@ -78,10 +80,16 @@ button {
 
 /* Utility Style */
 .section-heading {
-	margin: 0;
+	margin: 0.5rem auto;
 	padding: 0;
 	font-size: xx-large;
 	text-decoration: underline;
+}
+
+.subheading {
+	margin: 0.15rem auto;
+	font-weight: normal;
+	font-size: large;
 }
 
 .btn {
@@ -93,6 +101,7 @@ button {
 	background-color: #42428b;
 	border-radius: 0.75rem;
 	padding: 0.5rem 2rem;
+	margin: 1rem auto;
 	color: white;
 	font-size: 14px;
 	font-weight: normal;
@@ -120,6 +129,7 @@ nav {
 	&:hover {
 		border-bottom: 2px solid #000080;
 	}
+	z-index: 10;
 }
 
 .nav-logo {
@@ -156,6 +166,7 @@ footer {
 	&:hover {
 		border-top: 2px solid #000080;
 	}
+	z-index: 10;
 }
 
 .footer-logo {
@@ -181,9 +192,13 @@ footer {
 }
 
 /* index page */
+.info {
+	margin: 0 auto 3rem auto;
+}
+
 .header-image {
 	width: 500px;
-	margin: 2rem auto;
+	margin: 1rem auto;
 	border-radius: 1rem;
 	&:hover {
 		transform: scale(102%);
@@ -200,3 +215,14 @@ footer {
 	border: 2px solid #000080;
 	padding: 2rem;
 }
+
+.info-list {
+	margin: 1rem auto;
+}
+
+.info-list-item {
+	margin: 1rem auto;
+	font-size: large;
+}
+
+/* Pets Page */
