@@ -252,3 +252,22 @@ footer {
 	width: 15px;
 	height: 15px;
 }
+
+.dialog {
+	height: 90vh;
+	width: 80vw;
+	position: fixed;
+	left: 50%;
+	top: 50%;
+	z-index: 50;
+	border-radius: 1.25rem;
+	background-color: #42428b;
+	color: #e2e8f0;
+	border: 4px solid #7d95b9;
+	transform: translate(-50%, -50%);
+	opacity: 0;
+}
+
+.dialog[open] {
+	opacity: 1;
+}
