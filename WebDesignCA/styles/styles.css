@@ -226,3 +226,21 @@ footer {
 }
 
 /* Pets Page */
+.pets-display {
+	display: grid;
+	margin: 5rem 5rem;
+	grid-template-columns: repeat(4, 1fr);
+}
+
+.pet-card a {
+	text-decoration: none;
+	color: inherit;
+}
+
+.pet-picture {
+	height: 300px;
+	border-radius: 1rem;
+	&:hover {
+		transform: scale(102%);
+	}
+}
