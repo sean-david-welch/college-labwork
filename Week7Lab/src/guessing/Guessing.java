@@ -10,7 +10,7 @@ public class Guessing {
     }
 
     private int generateRandomNumber() {
-        return (int) (Math.random() * 10);
+        return (int) (Math.random() * 10) + 1;
     }
 
     private int generateUserGuess() {
@@ -36,8 +36,12 @@ public class Guessing {
             System.out.println("Correct, You Win");
         } else {
             System.out.println("Incorrect, try again!");
+            if (userGuess > generatedNumber) {
+                System.out.println("Hint: Your guess was too high.");
+            } else {
+                System.out.println("Hint: Your guess was too low.");
+            }
         }
-
         return userGuess == generatedNumber;
     }
 
@@ -47,11 +51,15 @@ public class Guessing {
 
         int randomNumber = generateRandomNumber();
 
-        for (int attempt = 0; attempt <= maxAttempt; attempt++) {
+        for (int attempt = 1; attempt <= maxAttempt; attempt++) {
             System.out.println("Attempt " + attempt + " of " + 5);
 
             int userGuess = generateUserGuess();
             boolean result = checkResult(userGuess, randomNumber);
+
+            if (result) return;
         }
+
+        System.out.printf("You ran out of attempts! The number was: %s", randomNumber);
     }
 }

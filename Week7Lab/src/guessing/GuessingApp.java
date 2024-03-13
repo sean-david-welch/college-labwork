@@ -8,8 +8,30 @@ package guessing;
  Note this may necessitate the creation of a large blank array
 */
 
+import java.util.InputMismatchException;
+import java.util.Scanner;
+
 public  class GuessingApp {
     public static void main(String[] args) {
-        System.out.println("hi");
+        try (Scanner scanner = new Scanner(System.in)) {
+            Guessing guessing = new Guessing(scanner);
+
+
+            boolean playAgain = true;
+
+            do {
+                guessing.initGuessingGame();
+
+                System.out.println("Would you like to play again? (y/n): ");
+                String userInput = scanner.nextLine().toLowerCase();
+
+                if (!userInput.equals("y") && !userInput.equals("yes") ) {
+                    playAgain = false;
+                }
+            } while (playAgain);
+
+        } catch (InputMismatchException err) {
+            System.out.println("An error was made along the way, please try again: " + err);
+        }
     }
 }
