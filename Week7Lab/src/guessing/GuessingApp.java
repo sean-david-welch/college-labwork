@@ -26,6 +26,7 @@ public  class GuessingApp {
                 boolean validInput = false;
                 while (!validInput) {
                     System.out.println("Would you like to play again? (y/n): ");
+                    System.out.println("-----------------------");
                     String userInput = scanner.nextLine().toLowerCase();
 
                     if (userInput.equals("n") || userInput.equals("no")) {

@@ -42,10 +42,12 @@ public class Subjects {
 
     private String[] chooseSubjectOptions(int numberSubjects) {
         System.out.printf("You're currently enrolled in %s subjects. Please list them below: %n", numberSubjects);
+        System.out.println("-----------------------");
 
         for (SubjectOptions subjectOptions: SubjectOptions.values()) {
             System.out.println(subjectOptions.name());
         }
+        System.out.println("-----------------------");
 
         String[] chosenSubjects = new String[numberSubjects];
 
@@ -66,7 +68,7 @@ public class Subjects {
     }
 
     private boolean confirmSubjectChoices(String[] chosenSubjects) {
-        System.out.println("Chose Subjects: " + Arrays.toString(chosenSubjects) + " Is this correct: (y/n)");
+        System.out.println("You're enrolled in: " + Arrays.toString(chosenSubjects) + " Is this correct?: (y/n)");
 
         while (true) {
             String input = scanner.nextLine().toLowerCase();
@@ -79,6 +81,7 @@ public class Subjects {
     }
 
     private int[] getSubjectResults(String[] chosenSubjects) {
+        System.out.println("-----------------------");
         System.out.println("Enter your results for each subject...");
         int[] subjectResults = new int[chosenSubjects.length];
 
@@ -106,7 +109,9 @@ public class Subjects {
             return;
         }
 
+        System.out.println("-----------------------");
         System.out.printf("Here are your final results: %n");
+
 
         for (int i = 0; i < chosenSubjects.length; i++)
             System.out.printf("(Subject: %s, Result: %s) %n", chosenSubjects[i], subjectResults[i]);
@@ -127,10 +132,13 @@ public class Subjects {
 
         while (true) {
             int numSubjects = chooseSubjectsNumber();
+            System.out.println("-----------------------");
             String[] chosenSubjects = chooseSubjectOptions(numSubjects);
+            System.out.println("-----------------------");
 
             if (confirmSubjectChoices(chosenSubjects)) {
                 int[] subjectResults = getSubjectResults(chosenSubjects);
+                System.out.println("-----------------------");
                 displaySubjectsAndGrades(chosenSubjects, subjectResults);
 
                 averageGrade = getSubjectAverage(subjectResults);

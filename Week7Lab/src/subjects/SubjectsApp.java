@@ -22,6 +22,7 @@ public class SubjectsApp {
             while (!success && maxRetries > 0) {
                 try {
                     int averageGrade = subjects.collectSubjectsData();
+                    System.out.println("-----------------------");
                     System.out.printf("Average Grade: %s%n", averageGrade);
                     success = true;
                 } catch (Exception err) {

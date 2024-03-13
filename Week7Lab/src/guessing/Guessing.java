@@ -96,6 +96,8 @@ public class Guessing {
 
         int[] finalResults = checkFinalResults(userGuesses);
 
+        System.out.println("-----------------------");
         System.out.printf("User Guesses: %s%n", Arrays.toString(finalResults));
+        System.out.println("-----------------------");
     }
 }
