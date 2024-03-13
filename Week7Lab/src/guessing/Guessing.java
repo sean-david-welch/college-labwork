@@ -1,5 +1,6 @@
 package guessing;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class Guessing {
@@ -45,26 +46,54 @@ public class Guessing {
         return userGuess == generatedNumber;
     }
 
+    private int[] checkFinalResults(int[] userGuesses) {
+        int length = userGuesses.length;
+
+        for (int guess: userGuesses) {
+            if (guess == 0) length--;
+        }
+
+        int[] finalResults = new int[length];
+
+        System.arraycopy(userGuesses, 0, finalResults, 0, finalResults.length);
+
+        return finalResults;
+    }
+
+
     // public constructor method for private fields
     public void initGuessingGame() {
         int maxAttempt = 5;
+        int currAttempt = 1;
+
         int randomNumber = generateRandomNumber();
 
         boolean guessCorrect = false;
+        int[] userGuesses = new int[maxAttempt];
 
-        for (int attempt = 1; attempt <= maxAttempt; attempt++) {
-            System.out.println("Attempt " + attempt + " of " + 5);
+        while (currAttempt <= maxAttempt) {
+            System.out.println("Attempt " + currAttempt + " of " + 5);
+            System.out.println("-----------------------");
 
             int userGuess = generateUserGuess();
+            userGuesses[currAttempt - 1] = userGuess;
+
             boolean result = checkResult(userGuess, randomNumber);
 
             if (result) {
                 guessCorrect = true;
                 break;
+            } else {
+                currAttempt++;
             }
         }
 
-        if (!guessCorrect)
+        if (!guessCorrect) {
             System.out.printf("You ran out of attempts! The number was: %s%n", randomNumber);
+        }
+
+        int[] finalResults = checkFinalResults(userGuesses);
+
+        System.out.printf("User Guess: %s%n", Arrays.toString(finalResults));
     }
 }
