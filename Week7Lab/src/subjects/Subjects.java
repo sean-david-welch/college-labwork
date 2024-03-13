@@ -6,7 +6,6 @@ import java.util.Scanner;
 public class Subjects {
     private final Scanner scanner;
 
-
     public Subjects(Scanner scanner) {
         this.scanner = scanner;
     }
@@ -16,7 +15,8 @@ public class Subjects {
     }
 
     private int chooseSubjectsNumber() {
-        int chosenSubjects = 0;
+        int chosenSubjects;
+
         while (true) {
             System.out.println("How many subjects do you take?");
             chosenSubjects = scanner.nextInt();
@@ -114,6 +114,7 @@ public class Subjects {
 
     private int getSubjectAverage(int[] subjectResults) {
         int sum = 0;
+
         for (int result: subjectResults) {
             sum += result;
         }
@@ -122,7 +123,7 @@ public class Subjects {
     }
 
     public int collectSubjectsData() {
-        int averageGrade = 0;
+        int averageGrade;
 
         while (true) {
             int numSubjects = chooseSubjectsNumber();
@@ -141,5 +142,4 @@ public class Subjects {
 
         return averageGrade;
     }
-
 }
