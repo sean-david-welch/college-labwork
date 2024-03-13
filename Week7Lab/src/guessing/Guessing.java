@@ -17,9 +17,8 @@ public class Guessing {
         int userGuess;
 
         while (true) {
-            System.out.println("Try guess the same number as the computer... " +
-                    "Pick a random number between 1 and 10: ");
             userGuess = scanner.nextInt();
+            scanner.nextLine();
 
             if (userGuess > 0 && userGuess < 11) {
                 break;
@@ -42,14 +41,16 @@ public class Guessing {
                 System.out.println("Hint: Your guess was too low.");
             }
         }
+
         return userGuess == generatedNumber;
     }
 
     // public constructor method for private fields
     public void initGuessingGame() {
         int maxAttempt = 5;
-
         int randomNumber = generateRandomNumber();
+
+        boolean guessCorrect = false;
 
         for (int attempt = 1; attempt <= maxAttempt; attempt++) {
             System.out.println("Attempt " + attempt + " of " + 5);
@@ -57,9 +58,13 @@ public class Guessing {
             int userGuess = generateUserGuess();
             boolean result = checkResult(userGuess, randomNumber);
 
-            if (result) return;
+            if (result) {
+                guessCorrect = true;
+                break;
+            }
         }
 
-        System.out.printf("You ran out of attempts! The number was: %s", randomNumber);
+        if (!guessCorrect)
+            System.out.printf("You ran out of attempts! The number was: %s%n", randomNumber);
     }
 }

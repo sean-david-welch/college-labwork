@@ -16,20 +16,23 @@ public  class GuessingApp {
         try (Scanner scanner = new Scanner(System.in)) {
             Guessing guessing = new Guessing(scanner);
 
-
             boolean playAgain = true;
+            System.out.println("Try guess the same number as the computer... " +
+                    "Pick a random number between 1 and 10: ");
 
-            do {
+            while (playAgain) {
                 guessing.initGuessingGame();
 
                 System.out.println("Would you like to play again? (y/n): ");
                 String userInput = scanner.nextLine().toLowerCase();
 
-                if (!userInput.equals("y") && !userInput.equals("yes") ) {
+                if (userInput.equals("n") || userInput.equals("no")) {
+                    System.out.println("Okay, bye!");
                     playAgain = false;
+                } else if (!userInput.equals("y") && !userInput.equals("yes")) {
+                    System.out.println("Input is not valid. Please confirm with (y/n)!");
                 }
-            } while (playAgain);
-
+            }
         } catch (InputMismatchException err) {
             System.out.println("An error was made along the way, please try again: " + err);
         }
