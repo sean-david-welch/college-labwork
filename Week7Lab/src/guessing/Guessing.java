@@ -89,11 +89,13 @@ public class Guessing {
         }
 
         if (!guessCorrect) {
+            System.out.println("-----------------------");
             System.out.printf("You ran out of attempts! The number was: %s%n", randomNumber);
+            System.out.println("-----------------------");
         }
 
         int[] finalResults = checkFinalResults(userGuesses);
 
-        System.out.printf("User Guess: %s%n", Arrays.toString(finalResults));
+        System.out.printf("User Guesses: %s%n", Arrays.toString(finalResults));
     }
 }

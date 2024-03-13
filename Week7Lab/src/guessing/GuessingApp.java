@@ -23,14 +23,21 @@ public  class GuessingApp {
             while (playAgain) {
                 guessing.initGuessingGame();
 
-                System.out.println("Would you like to play again? (y/n): ");
-                String userInput = scanner.nextLine().toLowerCase();
+                boolean validInput = false;
+                while (!validInput) {
+                    System.out.println("Would you like to play again? (y/n): ");
+                    String userInput = scanner.nextLine().toLowerCase();
 
-                if (userInput.equals("n") || userInput.equals("no")) {
-                    System.out.println("Okay, bye!");
-                    playAgain = false;
-                } else if (!userInput.equals("y") && !userInput.equals("yes")) {
-                    System.out.println("Input is not valid. Please confirm with (y/n)!");
+                    if (userInput.equals("n") || userInput.equals("no")) {
+                        System.out.println("-----------------------");
+                        System.out.println("Okay, bye!");
+                        playAgain = false;
+                        validInput = true;
+                    } else if (userInput.equals("y") || userInput.equals("yes")) {
+                        validInput = true;
+                    } else {
+                        System.out.println("Input is not valid. Please confirm with (y/n)!");
+                    }
                 }
             }
         } catch (InputMismatchException err) {
