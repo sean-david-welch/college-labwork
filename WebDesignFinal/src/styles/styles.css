@@ -118,7 +118,7 @@ button {
 nav {
 	display: flex;
 	flex-direction: row;
-	justify-content: space-between;
+	justify-content: space-evenly;
 	margin: auto;
 	padding: 1rem 0;
 	position: fixed;
@@ -133,8 +133,7 @@ nav {
 }
 
 .nav-logo {
-	height: 75px;
-	margin: auto 10rem;
+	margin: auto 5rem;
 	&:hover {
 		transform: scale(105%);
 	}
@@ -148,7 +147,7 @@ nav {
 }
 
 .nav-link-item {
-	margin: auto 10rem;
+	margin: auto 5rem;
 }
 
 /* Footer styles */
@@ -189,4 +188,88 @@ footer {
 
 .copyright {
 	margin: 1rem;
+}
+
+.white-svg svg {
+	margin-top: 0.2rem;
+	margin-left: 0.5rem;
+	fill: white;
+	width: 15px;
+	height: 15px;
+}
+
+dialog {
+	transition: all 700ms;
+}
+
+dialog[open] {
+	opacity: 1;
+}
+
+dialog {
+	max-height: 90vh;
+	width: 80vw;
+	position: fixed;
+	left: 50%;
+	top: 50%;
+	z-index: 50;
+	border-radius: 1.25rem;
+	color: #e2e8f0;
+	border: 4px solid #7d95b9;
+	transform: translate(-50%, -50%);
+	opacity: 0;
+}
+
+.form {
+	display: flex;
+	flex-direction: column;
+	background-color: #59657f;
+	color: #212121;
+	padding: 40px;
+	text-align: center;
+}
+
+.form > * {
+	font-family: 'Ojuju', sans-serif;
+}
+
+.form > * {
+	margin-top: 16px;
+	margin-bottom: 16px;
+}
+
+.form label {
+	margin-top: 8px;
+	margin-bottom: 8px;
+	display: block;
+	font-size: 1rem;
+	font-weight: 500;
+	color: #212121;
+}
+
+.form textarea,
+.form input,
+.form select {
+	margin: 0 auto;
+	display: block;
+	width: 66.6666%;
+	border-radius: 0.5rem;
+	border: 1px solid #d1d5db;
+	background-color: #c9c7c7;
+	padding: 10px;
+	font-size: 0.875rem;
+	color: #212121;
+}
+
+.form textarea:focus,
+.form input:focus,
+.form select:focus {
+	border-color: #42428b;
+	outline: 2px solid #42428b;
+}
+
+.form textarea::placeholder,
+.form input::placeholder,
+.form select::placeholder {
+	color: #212121;
 }
