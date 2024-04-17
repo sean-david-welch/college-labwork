@@ -8,25 +8,25 @@
         content="Automotive Acquisitions, Cars, Sports Car, Marketplace, Trade Cars">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="../assets/favicon.png" type="image/x-icon">
-    <link rel="stylesheet" href="../styles/styles.css">
     <title>Automotive Acquisitions</title>
     <!-- Styles -->
-    <!-- <link rel="stylesheet"
+    <link rel="stylesheet"
         href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
-        crossorigin="anonymous"> -->
-    <link rel="stylesheet"
-        href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.2/css/fontawesome.min.css"
-        integrity="sha384-BY+fdrpOd3gfeRvTSMT+VUZmA728cfF9Z2G42xpaRkUGu2i3DyzpTURDo5A6CaLK"
         crossorigin="anonymous">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+        integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="../styles/styles.css">
 
 </head>
 
 <body>
-    <nav class="navbar" id="navbar">
+    <nav class="navbar transparent-nav" id="navbar">
         <a href="index.html" class="navbar-brand">
             <img src="../assets/logo_transparent.png" class="nav-logo" alt="navbar-logo"
-                height="200" width="200">
+                width="150">
         </a>
 
         <ul class="nav-links">
@@ -47,20 +47,25 @@
     </nav>
 
     <main>
-        <div class="carousel" id="carousel">
-            <img src="../assets/cars/alfa-4c.jpg" alt="car-image" width="500">
-            <img src="../assets/cars/ford-focus.jpg" alt="car-image" width="500">
-            <img src="../assets/cars/marc-a-class.jpg" alt="car-image" width="500">
-            <img src="../assets/cars/maserati-gt.jpg" alt="car-image" width="500">
-            <img src="../assets/cars/range-evoque.jpg" alt="car-image" width="500">
-        </div>
+        <div class="hero-container">
+            <div class="slideshow" id="carousel">
+                <img src="../assets/cars/maserati-gt.jpg" class="slides" alt="car-image">
+                <img src="../assets/cars/alfa-4c.jpg" class="slides" alt="car-image">
+                <img src="../assets/cars/ford-focus.jpg" class="slides" alt="car-image">
+                <img src="../assets/cars/marc-a-class.jpg" class="slides" alt="car-image">
+                <img src="../assets/cars/range-evoque.jpg" class="slides" alt="car-image">
+            </div>
+            <button class="prev-button" aria-label="last slide"><i
+                    class="fa-solid fa-chevron-left"></i></button>
+            <button class="next-button" aria-label="next slide"><i
+                    class="fa-solid fa-chevron-right"></i></button>
 
-        <div class="info-section">
-            <h1>Hello</h1>
-        </div>
-
-        <div class="form-section">
-            <h1>Hello</h1>
+            <div class="typewriter">
+                <h1>
+                    <span class="txt-type" data-wait="100000"
+                        data-words='["Automotive Acquisitions - a marketplace for petrolheads"]'></span>
+                </h1>
+            </div>
         </div>
     </main>
 
@@ -84,7 +89,7 @@
 
         <a href="http://www.donedeal.ie" target="_blank">
             <img src="../assets/logo_transparent.png" class="footer-logo" alt="footer logo image"
-                height="200" width="200">
+                height="150">
         </a>
 
         <h2 class="copyright">&copy; 2024 Automotive Acquisitions Inc.</h2>
@@ -96,9 +101,12 @@
     <script src="https://code.jquery.com/jquery-3.7.1.slim.min.js"
         integrity="sha256-kmHvs0B+OpCW5GVHUNjv9rOmY0IvSIRcf7zGUDTDQM8="
         crossorigin="anonymous"></script>
-    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
         integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
-        crossorigin="anonymous"></script> -->
+        crossorigin="anonymous"></script>
+    <script src="../scripts/navbar.js" defer></script>
+    <script src="../scripts/carousel.js" defer></script>
+    <script src="../scripts/typewriter.js" defer></script>
 </body>
 
 </html>

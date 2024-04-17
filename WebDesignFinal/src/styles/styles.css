@@ -43,6 +43,7 @@ html::-webkit-scrollbar-track {
 }
 
 main {
+	position: relative;
 	display: flex;
 	min-height: 100vh;
 	flex-direction: column;
@@ -98,42 +99,49 @@ button {
 	align-items: center;
 	justify-content: center;
 
-	background-color: #42428b;
+	background-color: #3b3b71;
 	border-radius: 0.75rem;
-	padding: 0.5rem 2rem;
+	padding: 0.5rem 3rem;
 	margin: 1rem auto;
 	color: white;
-	font-size: 14px;
-	font-weight: normal;
+	font-size: 0.85rem;
+	font-weight: 400;
 	white-space: nowrap;
 
 	cursor: pointer;
 	&:hover {
-		background-color: #000080;
+		color: white;
+		transition: 700ms;
+		background-color: rgb(69, 0, 189);
 		transform: scale(102%);
 	}
 }
 
 /* navbar styles */
-nav {
+.navbar {
 	display: flex;
 	flex-direction: row;
-	justify-content: space-evenly;
+	justify-content: space-between;
 	margin: auto;
-	padding: 1rem 0;
+	padding: 1rem 2rem;
 	position: fixed;
 	top: 0;
 	width: 100vw;
-	background-color: #7d95b9;
-	border-bottom: 2px solid #7d95b9;
+	background-color: #121314;
+	border-bottom: 2px solid #121314;
 	&:hover {
-		border-bottom: 2px solid #000080;
+		border-bottom: 2px solid #4444ad;
 	}
 	z-index: 10;
 }
 
+.transparent-nav {
+	background-color: transparent !important;
+	border-bottom: none !important;
+}
+
 .nav-logo {
-	margin: auto 5rem;
+	margin: auto 2rem;
 	&:hover {
 		transform: scale(105%);
 	}
@@ -141,13 +149,13 @@ nav {
 
 .nav-links {
 	display: flex;
-	margin: auto 5rem;
+	margin: auto 2rem;
 	flex-direction: row;
 	justify-content: space-evenly;
 }
 
 .nav-link-item {
-	margin: auto 5rem;
+	margin: auto 2rem;
 }
 
 /* Footer styles */
@@ -158,12 +166,12 @@ footer {
 	bottom: 0;
 	padding: 1.5rem 0;
 	margin: auto;
-	background-color: #7d95b9;
+	background-color: #121314;
 	align-items: center;
 	text-align: center;
-	border-top: 2px solid #7d95b9;
+	border-top: 2px solid #121314;
 	&:hover {
-		border-top: 2px solid #000080;
+		border-top: 2px solid #4444ad;
 	}
 	z-index: 10;
 }
@@ -188,6 +196,8 @@ footer {
 
 .copyright {
 	margin: 1rem;
+	font-size: 1rem;
+	font-weight: 400;
 }
 
 .white-svg svg {
@@ -272,4 +282,81 @@ dialog {
 .form input::placeholder,
 .form select::placeholder {
 	color: #212121;
+}
+
+/* Index Page */
+.heroContainer {
+	position: relative;
+	height: 100vh;
+	width: 100vw;
+	overflow: hidden;
+}
+
+.slideshow {
+	position: absolute;
+	left: 0;
+	top: 0;
+	z-index: 0;
+	margin: auto;
+	height: 100vh;
+	width: 100%;
+	overflow: hidden;
+}
+
+.slides {
+	position: absolute;
+	left: 0;
+	top: 0;
+	opacity: 0;
+	height: 100%;
+	width: 100%;
+	object-fit: cover;
+	object-position: center;
+	transition: all 200ms ease-in-out;
+}
+
+.fade-in {
+	opacity: 1;
+}
+
+.fade-out {
+	opacity: 0;
+}
+
+.prev-button,
+.next-button {
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	white-space: nowrap;
+}
+
+.prev-button i,
+.next-button i {
+	size: 2rem;
+}
+
+.prev-button {
+	left: 0.25rem;
+}
+
+.next-button {
+	right: 0.25rem;
+}
+
+.typewriter {
+	position: absolute;
+	z-index: 10;
+	padding: 0.5rem;
+	font-size: 4rem;
+	font-weight: bold;
+	color: whitesmoke;
+	height: 10vh;
+	width: 70vw;
+	bottom: 2%;
+	left: 50%;
+	transform: translateX(-50%);
 }
