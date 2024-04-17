@@ -37,7 +37,9 @@ class TypeWriter {
 		setTimeout(() => this.type(), typeSpeed);
 	}
 }
+
 document.addEventListener('DOMContentLoaded', init);
+
 function init() {
 	const txtElement = document.querySelector('.txt-type');
 	const words = JSON.parse(txtElement.getAttribute('data-words'));
