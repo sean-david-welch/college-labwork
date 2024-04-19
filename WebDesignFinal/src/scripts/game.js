@@ -119,4 +119,10 @@ class CarRandomizer {
   }
 }
 
+document.addEventListener('DOMContentLoaded', init);
+
+function init() {
+  new CarRandomizer(carData);
+}
+
 
