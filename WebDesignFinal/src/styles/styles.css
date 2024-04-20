@@ -234,7 +234,7 @@ dialog[open] {
 }
 
 dialog {
-	height: 70vh;
+	min-height: 85vh;
 	width: 80vw;
 	position: fixed;
 	left: 50%;
@@ -255,6 +255,22 @@ dialog {
 dialog > * {
 	display: flex;
 	flex-direction: column;
+}
+
+.car-info {
+	display: flex;
+	flex-direction: column;
+	margin: 2rem auto;
+}
+
+.car-info img {
+	width: 500px;
+	margin: 0 auto;
+	border-radius: 1rem;
+}
+
+.car-info h1 {
+	color: #e2e8f0;
 }
 
 /* Index Page */

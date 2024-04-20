@@ -10,7 +10,7 @@ const carData = {
 				acceleration: '0 to 60 mph in 3.2 seconds',
 			},
 			starting_price: '$200,000',
-			image: '../assets/car.jpg',
+			image: '../assets/cars/lambo-hurucan.jpg',
 			key_features: [],
 			body_styles: [],
 			drive_options: [],
@@ -34,7 +34,7 @@ const carData = {
 			variants: [],
 			performance: null,
 			starting_price: 'Around €185,570 in Ireland',
-			image: '../assets/car.jpg',
+			image: '../assets/cars/merc-gt.jpg',
 			key_features: ['Electronically controlled suspension', 'Limited-slip differential'],
 			body_styles: ['Coupe', 'Roadster'],
 			drive_options: [],
@@ -46,7 +46,7 @@ const carData = {
 			variants: [],
 			performance: null,
 			starting_price: 'From €66,270 in Ireland',
-			image: '../assets/car.jpg',
+			image: '../assets/cars/range-evoque.jpg',
 			key_features: ['Stylish design', 'Off-road capability'],
 			body_styles: [],
 			drive_options: ['Front-wheel drive', 'All-wheel drive'],
@@ -58,7 +58,7 @@ const carData = {
 			variants: [],
 			performance: null,
 			starting_price: 'Approximately £35,629',
-			image: '../assets/car.jpg',
+			image: '../assets/cars/bmw-3series.jpg',
 			key_features: ['Sporty handling', 'Spacious cargo area'],
 			body_styles: [],
 			drive_options: [],
@@ -70,7 +70,7 @@ const carData = {
 			variants: [],
 			performance: null,
 			starting_price: 'Around $41,400',
-			image: '../assets/car.jpg',
+			image: '../assets/cars/audi-a5.jpg',
 			key_features: ['Comfortable interior'],
 			body_styles: [],
 			drive_options: ['Front-wheel drive', 'All-wheel drive'],
@@ -82,7 +82,7 @@ const carData = {
 			variants: [],
 			performance: null,
 			starting_price: 'About €32,100 in Ireland',
-			image: '../assets/car.jpg',
+			image: '../assets/cars/marc-a-class.jpg',
 			key_features: [],
 			body_styles: [],
 			drive_options: ['Front-wheel drive', 'All-wheel drive'],
@@ -94,7 +94,7 @@ const carData = {
 			variants: [],
 			performance: null,
 			starting_price: 'Around $148,885',
-			image: '../assets/car.jpg',
+			image: '../assets/cars/maserati-gt.jpg',
 			key_features: ['Stylish design'],
 			body_styles: [],
 			drive_options: [],
@@ -106,7 +106,7 @@ const carData = {
 			variants: [],
 			performance: null,
 			starting_price: 'Used models starting around €10,000 in Ireland',
-			image: '../assets/car.jpg',
+			image: '../assets/cars/ford-focus.jpg',
 			key_features: ['Affordability', 'Fuel efficiency'],
 			body_styles: ['Sedan', 'Hatchback'],
 			drive_options: [],
@@ -118,7 +118,7 @@ const carData = {
 			variants: [],
 			performance: null,
 			starting_price: 'Around €30,000 used',
-			image: '../assets/car.jpg',
+			image: '../assets/cars/alfa-4c.jpg',
 			key_features: ['Powerful engine'],
 			body_styles: [],
 			drive_options: [],
@@ -130,7 +130,7 @@ const carData = {
 			variants: [],
 			performance: null,
 			starting_price: 'Used models starting at €25,000 in Ireland',
-			image: '../assets/car.jpg',
+			image: '../assets/cars/hyundai-santafe.jpg',
 			key_features: ['Spacious interior', 'Comfortable ride'],
 			body_styles: [],
 			drive_options: ['Front-wheel drive', 'All-wheel drive'],
@@ -142,7 +142,7 @@ const carData = {
 			variants: [],
 			performance: null,
 			starting_price: '€33,900 in France (prices vary by location)',
-			image: '../assets/car.jpg',
+			image: '../assets/cars/renault-koleos.jpg',
 			key_features: ['Comfortable ride', 'Spacious interior'],
 			body_styles: [],
 			drive_options: [],
@@ -154,7 +154,7 @@ const carData = {
 			variants: [],
 			performance: null,
 			starting_price: '$50,000 in the United States',
-			image: '../assets/car.jpg',
+			image: '../assets/cars/jeep-rubicon.jpg',
 			key_features: [
 				'Heavy-duty axles',
 				'Electronic locking differentials',
@@ -179,14 +179,21 @@ class CarRandomizer {
 
 	play() {
 		const selectedCar = this.getRandomCar();
-		console.log(selectedCar);
 		this.dialog.innerHTML = `
-    <div>
-      <p>${selectedCar.name} - ${selectedCar.starting_price}</p>
-      <button class="btn" onsubmit="d.close()" type="submit">Submit</button>
-    </div>
-    `;
+			<div class="car-info">
+				<h1 class="section-heading">${selectedCar.name} - ${selectedCar.starting_price}</h1>
+				<img src="${selectedCar.image}" alt="car-image">
+				<button class="btn" onclick="d.close()">Close</button>
+			</div>
+		`;
 		this.dialog.showModal();
+		this.saveCarToLocalStorage(selectedCar);
+	}
+
+	saveCarToLocalStorage(selectedCar) {
+		let storedCars = JSON.parse(localStorage.getItem('randomisedCars')) || [];
+		storedCars.push(selectedCar);
+		localStorage.setItem('randomisedCars', JSON.stringify(storedCars));
 	}
 }
 
