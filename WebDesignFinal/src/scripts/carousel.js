@@ -16,18 +16,6 @@ const carData = {
 			drive_options: [],
 		},
 		{
-			name: 'Hyundai Creta',
-			type: 'Subcompact crossover SUV',
-			engine: null,
-			variants: ['Creta SX 1.6'],
-			performance: null,
-			starting_price: 'Around €20,000 in Ireland',
-			image: '../assets/cars/hyundai-creta.jpg',
-			key_features: ['Fuel efficiency', 'Spacious interior'],
-			body_styles: [],
-			drive_options: ['Front-wheel drive', 'All-wheel drive'],
-		},
-		{
 			name: 'Mercedes-AMG GT',
 			type: 'Luxury grand tourer sports car',
 			engine: 'Twin-turbocharged V8',
