@@ -105,7 +105,6 @@ button {
 	font-weight: 400;
 	font-style: normal;
 	font-size: 1.5rem;
-	color: #121314;
 }
 
 .btn {
@@ -236,14 +235,13 @@ dialog[open] {
 }
 
 dialog {
-	min-height: 70vh;
 	width: 80vw;
 	position: fixed;
 	left: 50%;
 	top: 50%;
 	z-index: 50;
 	border-radius: 1.25rem;
-	color: #e2e8f0;
+	color: #e2e8f0 !important;
 	background-color: #1f1f1f;
 	border: 4px solid #42428b;
 	transform: translate(-50%, -50%);
@@ -341,6 +339,7 @@ dialog > * {
 	object-fit: cover;
 	object-position: center;
 	transition: all 200ms ease-in-out;
+	cursor: pointer;
 }
 
 .fade-in {
