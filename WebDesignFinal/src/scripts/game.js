@@ -22,7 +22,7 @@ const carData = {
 			variants: ['Creta SX 1.6'],
 			performance: null,
 			starting_price: 'Around €20,000 in Ireland',
-			image: '../assets/car.jpg',
+			image: '../assets/cars/hyundai-creta.jpg',
 			key_features: ['Fuel efficiency', 'Spacious interior'],
 			body_styles: [],
 			drive_options: ['Front-wheel drive', 'All-wheel drive'],
@@ -183,10 +183,12 @@ class CarRandomizer {
 			<div class="car-info">
 				<h1 class="section-heading">${selectedCar.name} - ${selectedCar.starting_price}</h1>
 				<img src="${selectedCar.image}" alt="car-image">
-				<button class="btn" onclick="d.close()">Close</button>
+				<a class="btn" onclick="d.close()">Close</a>
 			</div>
 		`;
-		this.dialog.showModal();
+		setTimeout(() => {
+			this.dialog.showModal();
+		}, 50);
 		this.saveCarToLocalStorage(selectedCar);
 	}
 

@@ -22,7 +22,7 @@ const carData = {
 			variants: ['Creta SX 1.6'],
 			performance: null,
 			starting_price: 'Around €20,000 in Ireland',
-			image: '../assets/car.jpg',
+			image: '../assets/cars/hyundai-creta.jpg',
 			key_features: ['Fuel efficiency', 'Spacious interior'],
 			body_styles: [],
 			drive_options: ['Front-wheel drive', 'All-wheel drive'],
@@ -193,6 +193,22 @@ class FormSelection {
 		storedCars.push(selectedCar);
 		localStorage.setItem('selectedCars', JSON.stringify(storedCars));
 	}
+
+	validatedForm() {
+		const name = document.getElementById('name').value;
+		const phone = document.getElementById('phone').value;
+		const email = document.getElementById('email').value;
+		const car = document.getElementById('car').value;
+		const terms = document.getElementById('terms').checked;
+
+		const isNameValid = name.trim() !== '';
+		const isPhoneValid = phone.trim() !== '';
+		const isEmailValid = email.trim() !== '' && /^\S+@\S+\.\S+$/.test(email);
+		const isCarSelected = car !== '';
+		const areTermsAccepted = terms;
+
+		return isNameValid && isPhoneValid && isEmailValid && isCarSelected && areTermsAccepted;
+	}
 }
 
 document.addEventListener('DOMContentLoaded', init);
@@ -205,13 +221,22 @@ function init() {
 
 	form.addEventListener('submit', event => {
 		event.preventDefault();
-		carSelection.saveCarToLocalStorage();
 
-		form.reset();
-		message.textContent = 'Form submitted successfully!';
+		if (carSelection.validatedForm()) {
+			carSelection.saveCarToLocalStorage();
 
-		setTimeout(() => {
-			message.textContent = '';
-		}, 5000);
+			form.reset();
+			message.textContent = 'Form submitted successfully!';
+
+			setTimeout(() => {
+				message.textContent = '';
+			}, 5000);
+		} else {
+			message.textContent = 'Form invalid, try again!';
+
+			setTimeout(() => {
+				message.textContent = '';
+			}, 5000);
+		}
 	});
 }
