@@ -1,7 +1,7 @@
 sync: 
-	@aws s3 sync ./dist s3://automotiveacquisitions.ie/
+	@aws s3 sync ./src s3://automotiveacquisitions.ie/
 
 invalidate: 
-	@aws cloudfront create-invalidation --distribution-id EGIJU0OVG257E --paths '/*'
+	@aws cloudfront create-invalidation --distribution-id E2Z9ZX4IFBRHY4 --paths '/*'
 
-deploy: build invalidate
+deploy: sync invalidate
