@@ -15,9 +15,9 @@
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
         crossorigin="anonymous">
     <link rel="stylesheet"
-        href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.2/css/fontawesome.min.css"
-        integrity="sha384-BY+fdrpOd3gfeRvTSMT+VUZmA728cfF9Z2G42xpaRkUGu2i3DyzpTURDo5A6CaLK"
-        crossorigin="anonymous">
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+        integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="../styles/styles.css">
 
 </head>
@@ -47,7 +47,46 @@
     </nav>
 
     <main class="container">
-        <h1>Hello Game</h1>
+        <h1 class="section-heading">Car Randomizer:</h1>
+        <p class="subheading">Can't decide on a car? Let us help you:</p>
+
+        <button class="btn" id="dialog-button">
+            Car Randomizer game
+            <i class="fa-solid fa-right-from-bracket"></i>
+        </button>
+
+        <dialog class="dialog" id="d">
+        </dialog>
+
+        <section id="form">
+            <div class="form-container">
+                <form class="form">
+                    <h1 class="sub-heading">Car Selection Form</h1>
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" placeholder="Enter your name" required>
+                    <label for="phone">Phone Number:</label>
+                    <input type="tel" id="phone" name="phone" placeholder="Enter your phone number"
+                        required>
+
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" placeholder="Enter your email"
+                        required>
+
+                    <label for="car">Car:</label>
+                    <select id="car" name="car">
+                        <option value="">Select your car:</option>
+                    </select>
+                    <div class="checkboxes">
+                        <label for="terms">
+                            <input type="checkbox" id="terms" name="terms" required>
+                            I agree to the terms and conditions.
+                        </label>
+                    </div>
+                    <button class="btn" type="submit">Submit</button>
+                    <span id="message"></span>
+                </form>
+            </div>
+        </section>
     </main>
 
     <footer class="footer">
