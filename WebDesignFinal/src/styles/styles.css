@@ -320,12 +320,12 @@ dialog {
 
 .typewriter {
 	position: absolute;
-	z-index: 10;
 	padding: 0.5rem;
+	margin: 1rem auto;
 	font-size: 3rem;
 	font-weight: 200;
 	color: #e5e5e5;
-	height: 5vh;
+	height: 10vh;
 	width: 70vw;
 	bottom: 2%;
 	left: 50%;
@@ -336,17 +336,25 @@ dialog {
 .form {
 	display: flex;
 	flex-direction: column;
-	background-color: #59657f;
+	background-color: #1f1f1f;
 	color: #212121;
 	padding: 40px;
 	margin: 3rem auto;
 	text-align: center;
+	border-radius: 2rem;
+	width: 80vw;
+	border: 2px #1f1f1f;
+	transition: 700ms all ease-in-out;
+	&:hover {
+		border: 2px #42428b;
+	}
 }
 
 .form > * {
 	font-family: 'Bebas Neue', sans-serif;
 	font-weight: 400;
 	font-style: normal;
+	color: #c0c0c0;
 }
 
 .form > * {
@@ -360,7 +368,6 @@ dialog {
 	display: block;
 	font-size: 1rem;
 	font-weight: 500;
-	color: #212121;
 }
 
 .form textarea,
@@ -388,6 +395,12 @@ dialog {
 .form input::placeholder,
 .form select::placeholder {
 	color: #212121;
+}
+
+.form .checkboxes {
+	display: flex;
+	flex-direction: column;
+	margin: 1rem auto;
 }
 
 /* About Page */

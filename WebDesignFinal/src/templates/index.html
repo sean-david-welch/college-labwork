@@ -47,6 +47,7 @@
     </nav>
 
     <main>
+
         <section id="hero">
             <div class="hero-container">
                 <div class="slideshow" id="carousel">
@@ -67,45 +68,44 @@
                         <span class="txt-type" data-wait="100000"
                             data-words='["Automotive Acquisitions - a marketplace for petrolheads"]'></span>
                     </h1>
+                    <button class="btn">
+                        <a href="#form">Car Selection Form <i
+                                class="fa-solid fa-chevron-circle-down"></i></a>
+                    </button>
                 </div>
             </div>
         </section>
+
         <section id="form">
             <div class="form-container">
                 <form class="form">
-                    <h1 class="section-heading">Adoption Form</h1>
+                    <h1 class="sub-heading">Car Selection Form</h1>
                     <label for="name">Name:</label>
                     <input type="text" id="name" name="name" placeholder="Enter your name" required>
                     <label for="phone">Phone Number:</label>
                     <input type="tel" id="phone" name="phone" placeholder="Enter your phone number"
-                        required pattern="^\d{2}[\s-]\d{7}$">
+                        required>
+
                     <label for="email">Email:</label>
                     <input type="email" id="email" name="email" placeholder="Enter your email"
                         required>
-                    <label for="pet">Pet:</label>
-                    <select id="pet" name="pet">
-                        <option value="">Select your pet:</option>
-                        <option value="tigr">Tigr</option>
-                        <option value="fluffy">Fluffy</option>
-                        <option value="ringo">Ringo</option>
-                        <option value="micky">Micky</option>
+
+                    <label for="car">Car:</label>
+                    <select id="car" name="car">
+                        <option value="">Select your car:</option>
                     </select>
-                    <label for="terms">
-                        <input type="checkbox" id="terms" name="terms" required>
-                        I agree to the terms and conditions.
-                    </label>
-                    <label for="newsletter">
-                        <input type="checkbox" id="terms" name="terms" required>
-                        I want to subscribe to the newsletter.
-                    </label>
-                    <label for="comments">Comments:</label>
-                    <textarea id="comments" name="comments" rows="5"
-                        placeholder="Leave a comment (optional)">
-                            </textarea>
+                    <div class="checkboxes">
+                        <label for="terms">
+                            <input type="checkbox" id="terms" name="terms" required>
+                            I agree to the terms and conditions.
+                        </label>
+                    </div>
                     <button class="btn" type="submit">Submit</button>
+                    <span id="message"></span>
                 </form>
             </div>
         </section>
+
     </main>
 
     <footer class="footer">
@@ -146,6 +146,7 @@
     <script src="../scripts/navbar.js" defer></script>
     <script src="../scripts/carousel.js" defer></script>
     <script src="../scripts/typewriter.js" defer></script>
+    <script src="../scripts/form.js" defer></script>
 </body>
 
 </html>
