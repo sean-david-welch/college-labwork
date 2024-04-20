@@ -23,25 +23,31 @@
 //   });
 // });
 
-$(document).ready(function() {
-  let count = 0;
-  const maxDelay = 1000;
+// Jquery version
+$(document).ready(function () {
+	let count = 0;
+	const maxDelay = 800;
 
-  const observer = new IntersectionObserver(entries => {
-    for (let i = 0; i < entries.length; i++) {
-      if (entries[i].isIntersecting) {
-        const delay = Math.min(200 + (100 * count), maxDelay);
-        setTimeout(() => {
-          $(entries[i].target).addClass('timeline-card-visible');
-        }, delay);
-        count++;
-      }
-    }
-  }, {
-    threshold: 0.1,
-  });
+	const observer = new IntersectionObserver(
+		entries => {
+			for (let i = 0; i < entries.length; i++) {
+				if (entries[i].isIntersecting) {
+					const delay = Math.min(200 + 100 * count, maxDelay);
 
-  $('.timeline-card').each(function() {
-    observer.observe(this);
-  })
-})
+					setTimeout(() => {
+						$(entries[i].target).addClass('timeline-card-visible');
+					}, delay);
+
+					count++;
+				}
+			}
+		},
+		{
+			threshold: 0.1,
+		}
+	);
+
+	$('.timeline-card').each(function () {
+		observer.observe(this);
+	});
+});
