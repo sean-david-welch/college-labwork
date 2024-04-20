@@ -21,6 +21,7 @@ html {
 
 body {
 	min-height: 100vh;
+	min-width: 100vw;
 	background-image: linear-gradient(
 		to bottom,
 		rgb(235, 235, 235) 0%,
@@ -81,7 +82,8 @@ button {
 
 /* Utility Style */
 .container {
-	padding: 15rem 0 5rem 0;
+	padding: 15rem 0;
+	min-width: 100vw;
 }
 
 .section-heading {
@@ -255,6 +257,41 @@ dialog {
 dialog > * {
 	display: flex;
 	flex-direction: column;
+}
+
+.account-section {
+	display: flex;
+	flex-direction: column;
+	text-align: center;
+	align-items: center;
+	margin: 0 auto;
+}
+
+.car-card {
+	display: flex;
+	flex-direction: column;
+	background-color: #18181b;
+	border: 3px solid #18181b;
+	border-radius: 1rem;
+	transition: all 700ms ease-in-out;
+	margin: 2rem 15rem;
+	padding: 1rem;
+	&:hover {
+		border: 3px solid #42428b;
+		scale: 101%;
+	}
+}
+
+.car-card > * {
+	color: #d1d5db !important;
+}
+
+.car-card img {
+	border-radius: 2rem;
+	border: 2px;
+	padding: 1rem;
+	width: 800px;
+	margin: 0 auto;
 }
 
 .car-info {
