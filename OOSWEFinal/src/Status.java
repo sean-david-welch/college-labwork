@@ -1,3 +1,11 @@
 public enum Status {
-    FULFILLED, SHIPPED, CANCELLED
+    FULFILLED, SHIPPED, CANCELLED;
+
+    @Override
+    public String toString() {
+        return "Status{}";
+    }
+
+    Status() {
+    }
 }
