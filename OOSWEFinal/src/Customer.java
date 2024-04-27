@@ -1,3 +1,5 @@
+import java.util.HashMap;
+
 public class Customer {
     String id;
     String name;
@@ -12,6 +14,9 @@ public class Customer {
         this.shipping = shipping;
         this.shoppingCart = shoppingCart;
     }
+
+    private HashMap<String, String> registeredCustomers = new HashMap<>();
+    private boolean isLoggedIn = false;
 
     public String getId() {
         return id;
@@ -53,8 +58,25 @@ public class Customer {
         this.shoppingCart = shoppingCart;
     }
 
-    public void register(String email, String password) {}
-    public void login(String email, String password) {}
+    public void register(String email, String password) {
+        if (registeredCustomers.get(email) == null) {
+            registeredCustomers.put(email, password);
+            System.out.println("Registration successful for: " + email);
+        } else {
+            System.out.println("Email already registered!");
+        }
+    }
+
+    public void login(String email, String password) {
+        String storedPassword = registeredCustomers.get(email);
+        if (storedPassword != null && storedPassword.equals(password)) {
+            isLoggedIn = true;
+            System.out.println("Logged in successfully as: " + email);
+        } else {
+            System.out.println("Login failed. Incorrect email or password.");
+        }
+    }
+
     public void placeOrder(Order order) {}
     public void initiateCheckout() {}
 }
