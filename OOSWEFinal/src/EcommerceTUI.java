@@ -77,7 +77,7 @@ public class EcommerceTUI {
         String productName = scanner.nextLine().trim();
 
         System.out.println("Enter the quantity:");
-        int quantity = 0;
+        int quantity;
         try {
             quantity = Integer.parseInt(scanner.nextLine().trim());
             if (quantity <= 0) {
