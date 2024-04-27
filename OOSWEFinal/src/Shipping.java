@@ -4,6 +4,13 @@ public class Shipping {
     String deliveryCost;
     Status status;
 
+    public Shipping(String id, String address, String deliveryCost, Status status) {
+        this.id = id;
+        this.address = address;
+        this.deliveryCost = deliveryCost;
+        this.status = status;
+    }
+
     public String getId() {
         return id;
     }
@@ -33,13 +40,6 @@ public class Shipping {
     }
 
     public void setStatus(Status status) {
-        this.status = status;
-    }
-
-    public Shipping(String id, String address, String deliveryCost, Status status) {
-        this.id = id;
-        this.address = address;
-        this.deliveryCost = deliveryCost;
         this.status = status;
     }
 

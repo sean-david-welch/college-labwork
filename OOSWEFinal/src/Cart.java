@@ -5,6 +5,12 @@ public class Cart {
     List<CartIem> items;
     int quantity;
 
+    public Cart(String id, List<CartIem> items, int quantity) {
+        this.id = id;
+        this.items = items;
+        this.quantity = quantity;
+    }
+
     public String getId() {
         return id;
     }
@@ -26,12 +32,6 @@ public class Cart {
     }
 
     public void setQuantity(int quantity) {
-        this.quantity = quantity;
-    }
-
-    public Cart(String id, List<CartIem> items, int quantity) {
-        this.id = id;
-        this.items = items;
         this.quantity = quantity;
     }
 
