@@ -17,7 +17,12 @@ public class EcommerceTUI {
         String password = scanner.nextLine();
 
         ecommerceService.registerUser(email, password);
-        scanner.nextLine();
+
+        try {
+            int input = Integer.parseInt(scanner.nextLine().trim());
+        } catch (NumberFormatException e) {
+            System.out.println("Invalid input. Please enter a valid number.");
+        }
     }
 
     public void loginUser() {
@@ -27,27 +32,40 @@ public class EcommerceTUI {
         String password = scanner.nextLine();
 
         ecommerceService.loginUser(email, password);
-        scanner.nextLine();
+
+        try {
+            int input = Integer.parseInt(scanner.nextLine().trim());
+        } catch (NumberFormatException e) {
+            System.out.println("Invalid input. Please enter a valid number.");
+        }
     }
 
     public void viewCart() {
         List<CartItem> items = ecommerceService.viewCart();
 
-        System.out.println("Items in your cart:");
-        System.out.printf("%-30s %-10s %-10s%n", "Product Name", "Quantity", "Price");
 
-        for (CartItem item : items) {
-            Product product = item.getProduct();
-            System.out.printf("%-30s %-10d $%.2f%n",
-                    product.getName(),
-                    item.getQuantity(),
-                    product.getPrice() * item.getQuantity());
+        if (!items.isEmpty()) {
+
+            System.out.println("Items in your cart:");
+            System.out.printf("%-30s %-10s %-10s%n", "Product Name", "Quantity", "Price");
+
+            for (CartItem item : items) {
+                Product product = item.getProduct();
+                System.out.printf("%-30s %-10d $%.2f%n",
+                        product.getName(),
+                        item.getQuantity(),
+                        product.getPrice() * item.getQuantity());
+            }
+
+            int subtotal = ecommerceService.getCartSubtotal();
+            System.out.println("Total: $" + subtotal);
         }
 
-        int subtotal = ecommerceService.getCartSubtotal();
-        System.out.println("Total: $" + subtotal);
-
-        scanner.nextInt();
+        try {
+            int input = Integer.parseInt(scanner.nextLine().trim());
+        } catch (NumberFormatException e) {
+            System.out.println("Invalid input. Please enter a valid number.");
+        }
     }
 
     public void viewProducts() {
@@ -67,6 +85,12 @@ public class EcommerceTUI {
                     product.getName(),
                     product.getDescription(),
                     product.getPrice());
+        }
+
+        try {
+            Integer.parseInt(scanner.nextLine().trim());
+        } catch (NumberFormatException e) {
+            System.out.println("Invalid input. Please enter a valid number.");
         }
     }
 
@@ -116,8 +140,14 @@ public class EcommerceTUI {
         this.viewMainOptions();
 
         while (true) {
-            int input = scanner.nextInt();
-            scanner.nextLine();
+            String inputLine = scanner.nextLine();
+            int input = -1;
+            try {
+                input = Integer.parseInt(inputLine);
+            } catch (NumberFormatException e) {
+                System.out.println("Invalid input. Please enter a number.");
+                continue;
+            }
             System.out.println("-------------------");
 
             if (input == 0) {
@@ -127,21 +157,28 @@ public class EcommerceTUI {
                 break;
             }
 
-            if (input == 1) {
-                this.registerUser();
-            } else if (input == 2) {
-                this.loginUser();
-            } else if (input == 3) {
-                this.viewCart();
-            } else if (input == 4) {
-                this.viewProducts();
-            } else if (input == 5) {
-                this.addProductToCart();
-            } else if (input == 6) {
-                this.initiateCheckout();
-            } else {
-                System.out.println("Invalid option. Try Again or enter 0 to see the options! Press 7 to quit!");
-                System.out.println("-------------------");
+            switch (input) {
+                case 1:
+                    this.registerUser();
+                    break;
+                case 2:
+                    this.loginUser();
+                    break;
+                case 3:
+                    this.viewCart();
+                    break;
+                case 4:
+                    this.viewProducts();
+                    break;
+                case 5:
+                    this.addProductToCart();
+                    break;
+                case 6:
+                    this.initiateCheckout();
+                    break;
+                default:
+                    System.out.println("Invalid option. Try Again or enter 0 to see the options! Press 7 to quit!");
+                    System.out.println("-------------------");
             }
         }
     }
