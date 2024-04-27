@@ -1,66 +1,39 @@
-import java.util.Scanner;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
+import java.util.UUID;
 
 public class EcommerceService {
-    private final Scanner scanner;
+    private final Cart cart = new Cart();
+	private final List<Product> products = new ArrayList<>();
 
-    public EcommerceService(Scanner scanner) {
-        this.scanner = scanner;
+    public EcommerceService() {
+        products.add(new Product(UUID.randomUUID().toString(), "Whey Protein", "Premium whey protein for muscle growth, 2 lbs", 49.99f));
+        products.add(new Product(UUID.randomUUID().toString(), "Multivitamins", "Complete daily multivitamins for overall health", 29.99f));
+        products.add(new Product(UUID.randomUUID().toString(), "Omega-3 Capsules", "High-strength fish oil omega-3 capsules", 19.99f));
     }
 
     public void registerUser() {}
     public void loginUser() {}
+
     public void viewCart() {}
-    public void viewProducts() {}
-    public void addProductToCart () {}
+
+    public List<Product> viewProducts() {
+        return products;
+    }
+
+    public void addProductToCart (String productName, int quantity) {
+        for (Product product: products) {
+            if (Objects.equals(productName, product.name)) {
+                String cartItemId = UUID.randomUUID().toString();
+                CartIem cartIem = new CartIem(cartItemId, product, quantity);
+
+                cart.addItem(cartIem);
+                System.out.println("Added " + quantity + " of " + productName + " to the cart.");
+                return;
+            }
+        }
+    }
+
     public void initiateCheckout() {}
-
-    private void viewMainOptions() {
-        String[] mainOptions = new String[] {
-                "Register User", "Login User",
-                "View Cart", "View Products",
-                "Add Product To Cart", "Initiate Checkout"
-        };
-
-        System.out.println("-------------------");
-        System.out.println("Please choose from the options... Enter 0 to view them again.... Press 7 to quit");
-        System.out.println("-------------------");
-        for (int i = 0; i < mainOptions.length; i++) {
-            System.out.printf("%s. %s%n", (i + 1), mainOptions[i]);
-        }
-        System.out.println("-------------------");
-    }
-
-    public void ecommerceController() {
-        this.viewMainOptions();
-
-        while (true) {
-            int input = scanner.nextInt();
-            scanner.nextLine();
-            System.out.println("-------------------");
-
-            if (input == 0) {
-                this.viewMainOptions();
-                continue;
-            } else if (input == 7) {
-                break;
-            }
-
-            if (input == 1) {
-                this.registerUser();
-            } else if (input == 2) {
-                this.loginUser();
-            } else if (input == 3) {
-                this.viewCart();
-            } else if (input == 4) {
-                this.viewProducts();
-            } else if (input == 5) {
-                this.addProductToCart();
-            } else if (input == 6) {
-                this.initiateCheckout();
-            } else {
-                System.out.println("Invalid option. Try Again or enter 0 to see the options! Press 6 to quit!");
-                System.out.println("-------------------");
-            }
-        }
-    }
 }

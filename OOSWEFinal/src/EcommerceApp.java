@@ -4,12 +4,13 @@ import java.util.Scanner;
 public class EcommerceApp {
     public static void main(String[] args) {
         try (Scanner scanner = new Scanner(System.in)) {
-            EcommerceService ecommerceService = new EcommerceService(scanner);
+            EcommerceService ecommerceService = new EcommerceService();
+            EcommerceTUI ecommerceTUI = new EcommerceTUI(scanner, ecommerceService);
 
             while (true) {
                 try {
-                    ecommerceService.ecommerceController();
-                    // confirmation of exit
+                    ecommerceTUI.ecommerceController();
+
                     System.out.println("Enter 'quit'/'q' to exit or press Enter to continue.");
                     String input = scanner.nextLine();
 

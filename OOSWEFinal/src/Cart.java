@@ -1,13 +1,14 @@
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 public class Cart {
     String id;
     List<CartIem> items;
     int total;
 
-    public Cart(String id) {
-        this.id = id;
+    public Cart() {
+        this.id = UUID.randomUUID().toString();
         this.items = new ArrayList<>();
         this.total = 0;
     }
