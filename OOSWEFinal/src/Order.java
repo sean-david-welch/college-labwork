@@ -43,6 +43,17 @@ public class Order {
         this.status = status;
     }
 
-    public void updateStatus(Status status) {}
-    public void cancelOrder() {}
+    public void updateStatus(Status newStatus) {
+        this.status = newStatus;
+        System.out.println("Order ID " + id + " status updated to: " + status);
+    }
+
+    public void cancelOrder() {
+        if (status == Status.FULFILLED) {
+            System.out.println("Order ID " + id + " cannot be cancelled as it is already fulfilled.");
+        } else {
+            this.status = Status.CANCELLED;
+            System.out.println("Order ID " + id + " has been cancelled.");
+        }
+    }
 }

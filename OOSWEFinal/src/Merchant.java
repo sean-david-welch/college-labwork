@@ -23,6 +23,20 @@ public class Merchant {
         this.name = name;
     }
 
-    public void manageOrder(Order order){}
-    public void shipOrder(Order order){}
+    public void manageOrder(Order order) {
+        if (order.getStatus() == Status.CANCELLED) {
+            System.out.println("Order ID " + order.getId() + " has been cancelled. No further actions are possible.");
+        } else {
+            System.out.println("Managing order ID " + order.getId() + ".");
+        }
+    }
+
+    public void shipOrder(Order order) {
+        if (order.getStatus() == Status.FULFILLED) {
+            order.updateStatus(Status.SHIPPED);
+            System.out.println("Order ID " + order.getId() + " has been shipped.");
+        } else {
+            System.out.println("Order ID " + order.getId() + " is not ready for shipping.");
+        }
+    }
 }

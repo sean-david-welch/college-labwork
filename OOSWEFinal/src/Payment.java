@@ -43,7 +43,21 @@ public class Payment {
         this.complete = complete;
     }
 
-    public void declineOrder() {}
-    public void notifyCustomer() {}
-    public void process(String id, int amount) {}
+    public void process(Cart cart) {
+        this.amount = cart.getTotal();
+
+        this.complete = true;
+        System.out.println("Payment processed for customer ID " + customerId +
+                ". Total amount: " + amount + ". Payment is complete.");
+    }
+
+    public void declineOrder() {
+        this.complete = false;
+        System.out.println("Payment declined for customer: " + customerId);
+    }
+
+    public void notifyCustomer() {
+        String message = this.complete ? "Your payment is complete." : "Your payment has been declined.";
+        System.out.println("Notification to customer " + customerId + ": " + message);
+    }
 }

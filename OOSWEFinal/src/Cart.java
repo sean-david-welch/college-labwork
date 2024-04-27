@@ -1,14 +1,15 @@
+import java.util.ArrayList;
 import java.util.List;
 
 public class Cart {
     String id;
     List<CartIem> items;
-    int quantity;
+    int total;
 
-    public Cart(String id, List<CartIem> items, int quantity) {
+    public Cart(String id) {
         this.id = id;
-        this.items = items;
-        this.quantity = quantity;
+        this.items = new ArrayList<>();
+        this.total = 0;
     }
 
     public String getId() {
@@ -27,14 +28,30 @@ public class Cart {
         this.items = items;
     }
 
-    public int getQuantity() {
-        return quantity;
+    public int getTotal() {
+        this.total = 0;
+        for (CartIem item : this.items) {
+            this.total += (int) (item.getProduct().getPrice() * item.getQuantity());
+        }
+        return total;
     }
 
-    public void setQuantity(int quantity) {
-        this.quantity = quantity;
+    public void setTotal(int total) {
+        this.total = total;
     }
 
-    void buyNow(float price, int quantity) {}
+    public void addItem(CartIem cartItem) {
+        this.items.add(cartItem);
+        this.total += (int) (cartItem.getProduct().getPrice() * cartItem.getQuantity());
+    }
+
+    public void removeItem(String itemId) {
+        items.removeIf(item -> item.getId().equals(itemId));
+    }
+
+    public void clearCart() {
+        this.items.clear();
+        this.total = 0;
+    }
 }
 

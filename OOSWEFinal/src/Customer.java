@@ -15,7 +15,7 @@ public class Customer {
         this.shoppingCart = shoppingCart;
     }
 
-    private HashMap<String, String> registeredCustomers = new HashMap<>();
+    private final HashMap<String, String> registeredCustomers = new HashMap<>();
     private boolean isLoggedIn = false;
 
     public String getId() {
@@ -77,7 +77,26 @@ public class Customer {
         }
     }
 
-    public void placeOrder(Order order) {}
-    public void initiateCheckout() {}
+    public void placeOrder(Order order) {
+        if (isLoggedIn) {
+            order.updateStatus(Status.FULFILLED);
+            System.out.println("Order placed successfully.");
+        } else {
+            System.out.println("You need to login first.");
+        }
+    }
+
+    public void initiateCheckout() {
+        if (isLoggedIn) {
+            if (shoppingCart != null && !shoppingCart.items.isEmpty()) {
+                System.out.println("Initiating checkout...");
+                System.out.println("Checkout complete. Total: " + shoppingCart.getTotal());
+            } else {
+                System.out.println("Your shopping cart is empty.");
+            }
+        } else {
+            System.out.println("You need to login first.");
+        }
+    }
 }
 

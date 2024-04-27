@@ -1,3 +1,5 @@
+import java.util.UUID;
+
 public class Product {
     String id;
     String name;
@@ -43,5 +45,8 @@ public class Product {
         this.price = price;
     }
 
-    public void buyNow(float price, int quantity) {}
+    public void buyNow(Cart cart, int quantity) {
+        CartIem cartItem = new CartIem(UUID.randomUUID().toString(), this, quantity);
+        cart.addItem(cartItem);
+    }
 }

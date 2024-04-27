@@ -33,7 +33,15 @@ public class CartIem {
         this.quantity = quantity;
     }
 
-    public void updateQuantity(int quantity) {}
+    public void updateQuantity(int input) {
+        int newQuantity = this.quantity + input;
+        if (newQuantity >= 0) {
+            this.quantity = newQuantity;
+        } else {
+            System.out.println("Cannot reduce quantity below zero.");
+            this.quantity = 0;
+        }
+    }
 }
 
 
