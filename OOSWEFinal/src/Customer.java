@@ -90,9 +90,9 @@ public class Customer {
 
     public void initiateCheckout() {
         if (isLoggedIn) {
-            if (shoppingCart != null && !shoppingCart.items.isEmpty()) {
+            if (!shoppingCart.items.isEmpty()) {
                 System.out.println("Initiating checkout...");
-                System.out.println("Checkout complete. Total: " + shoppingCart.getTotal());
+                System.out.println("Checkout complete. Total:€ " + shoppingCart.getTotal());
             } else {
                 System.out.println("Your shopping cart is empty.");
             }

@@ -1,7 +1,4 @@
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
-import java.util.UUID;
+import java.util.*;
 
 public class EcommerceService {
     private final Cart cart = new Cart();
@@ -22,9 +19,11 @@ public class EcommerceService {
     }
 
     public List<CartItem> viewCart() {
+        List<CartItem> emptyList = Collections.emptyList();
+
         if (cart.getItems().isEmpty()) {
             System.out.println("Your cart is empty.");
-            return null;
+            return emptyList;
         }
 
         return cart.getItems();
@@ -46,9 +45,11 @@ public class EcommerceService {
 
                 cart.addItem(cartItem);
                 System.out.println("Added " + quantity + " of " + productName + " to the cart.");
+                customer.setShoppingCart(cart);
                 return;
             }
         }
+        System.out.println("Product '" + productName + "' not found.");
     }
 
     public void initiateCheckout() {

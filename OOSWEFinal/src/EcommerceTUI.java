@@ -39,14 +39,14 @@ public class EcommerceTUI {
 
             for (CartItem item : items) {
                 Product product = item.getProduct();
-                System.out.printf("%-30s %-10d $%.2f%n",
+                System.out.printf("%-30s %-10d €%.2f%n",
                         product.getName(),
                         item.getQuantity(),
                         product.getPrice() * item.getQuantity());
             }
 
             int subtotal = ecommerceService.getCartSubtotal();
-            System.out.println("Total: $" + subtotal);
+            System.out.println("Total: €" + subtotal);
         }
     }
 
@@ -61,7 +61,7 @@ public class EcommerceTUI {
         System.out.println("Available Products:");
         int index = 1;
         for (Product product : products) {
-            System.out.printf("%d. Name: %-30s Description: %-50s Price: $%.2f%n",
+            System.out.printf("%d. Name: %-30s Description: %-50s Price: €%.2f%n",
                     index++,
                     product.getName(),
                     product.getDescription(),
