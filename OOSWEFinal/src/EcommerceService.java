@@ -51,5 +51,7 @@ public class EcommerceService {
         }
     }
 
-    public void initiateCheckout() {}
+    public void initiateCheckout() {
+        customer.initiateCheckout();
+    }
 }

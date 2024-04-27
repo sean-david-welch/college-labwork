@@ -10,9 +10,25 @@ public class EcommerceTUI {
         this.ecommerceService = ecommerceService;
     }
 
-    public void registerUser() {}
+    public void registerUser() {
+        System.out.println("Please enter your email:");
+        String email = scanner.nextLine();
+        System.out.println("Please enter your password:");
+        String password = scanner.nextLine();
 
-    public void loginUser() {}
+        ecommerceService.registerUser(email, password);
+        scanner.nextLine();
+    }
+
+    public void loginUser() {
+        System.out.println("Please enter your email:");
+        String email = scanner.nextLine();
+        System.out.println("Please enter your password:");
+        String password = scanner.nextLine();
+
+        ecommerceService.loginUser(email, password);
+        scanner.nextLine();
+    }
 
     public void viewCart() {
         List<CartItem> items = ecommerceService.viewCart();
@@ -76,7 +92,9 @@ public class EcommerceTUI {
         ecommerceService.addProductToCart(productName, quantity);
     }
 
-    public void initiateCheckout() {}
+    public void initiateCheckout() {
+        ecommerceService.initiateCheckout();
+    }
 
     private void viewMainOptions() {
         String[] mainOptions = new String[] {
