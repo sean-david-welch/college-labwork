@@ -1,3 +1,5 @@
+package org.example;
+
 public class Merchant {
     String id;
     String name;

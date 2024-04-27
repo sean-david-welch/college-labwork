@@ -1,3 +1,5 @@
+package org.example;
+
 public class Order {
     String id;
     Cart cart;

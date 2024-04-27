@@ -1,3 +1,5 @@
+package org.example;
+
 public class Shipping {
     String id;
     String address;

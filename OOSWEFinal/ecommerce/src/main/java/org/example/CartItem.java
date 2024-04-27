@@ -1,3 +1,5 @@
+package org.example;
+
 public class CartItem {
     String id;
     Product product;
