@@ -13,6 +13,8 @@ public class Shipping {
         this.status = status;
     }
 
+    public Shipping() {}
+
     public String getId() {
         return id;
     }

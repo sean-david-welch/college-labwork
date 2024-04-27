@@ -19,8 +19,8 @@ public class Customer {
 
     public Customer() {}
 
-    private final HashMap<String, String> registeredCustomers = new HashMap<>();
-    private boolean isLoggedIn = false;
+    public final HashMap<String, String> registeredCustomers = new HashMap<>();
+    public boolean isLoggedIn = false;
 
     public String getId() {
         return id;
