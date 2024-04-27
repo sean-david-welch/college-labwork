@@ -43,7 +43,7 @@ public class Payment {
         this.complete = complete;
     }
 
-    void declineOrder() {}
-    void notifyCustomer() {}
-    void process(String id, int amount) {}
+    public void declineOrder() {}
+    public void notifyCustomer() {}
+    public void process(String id, int amount) {}
 }

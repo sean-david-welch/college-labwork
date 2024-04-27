@@ -33,7 +33,7 @@ public class CartIem {
         this.quantity = quantity;
     }
 
-    void updateQuantity(int quantity) {}
+    public void updateQuantity(int quantity) {}
 }
 
 

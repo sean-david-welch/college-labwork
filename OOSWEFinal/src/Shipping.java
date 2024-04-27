@@ -43,5 +43,5 @@ public class Shipping {
         this.status = status;
     }
 
-    void updateStatus(Status status) {}
+    public void updateStatus(Status status) {}
 }

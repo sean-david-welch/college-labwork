@@ -53,9 +53,9 @@ public class Customer {
         this.shoppingCart = shoppingCart;
     }
 
-    void register(String email, String password) {}
-    void login(String email, String password) {}
-    void placeOrder(Order order) {}
-    void initiateCheckout() {}
+    public void register(String email, String password) {}
+    public void login(String email, String password) {}
+    public void placeOrder(Order order) {}
+    public void initiateCheckout() {}
 }
 

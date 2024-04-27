@@ -23,6 +23,6 @@ public class Merchant {
         this.name = name;
     }
 
-    void manageOrder(Order order){}
-    void shipOrder(Order order){}
+    public void manageOrder(Order order){}
+    public void shipOrder(Order order){}
 }

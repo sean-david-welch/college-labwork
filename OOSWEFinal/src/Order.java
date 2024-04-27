@@ -43,6 +43,6 @@ public class Order {
         this.status = status;
     }
 
-    void updateStatus(Status status) {}
-    void cancelOrder() {}
+    public void updateStatus(Status status) {}
+    public void cancelOrder() {}
 }

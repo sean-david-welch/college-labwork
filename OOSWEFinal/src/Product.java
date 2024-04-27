@@ -43,5 +43,5 @@ public class Product {
         this.price = price;
     }
 
-    void buyNow(float price, int quantity) {}
+    public void buyNow(float price, int quantity) {}
 }
