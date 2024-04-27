@@ -46,7 +46,7 @@ public class Product {
     }
 
     public void buyNow(Cart cart, int quantity) {
-        CartIem cartItem = new CartIem(UUID.randomUUID().toString(), this, quantity);
+        CartItem cartItem = new CartItem(UUID.randomUUID().toString(), this, quantity);
         cart.addItem(cartItem);
     }
 }

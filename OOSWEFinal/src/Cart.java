@@ -4,7 +4,7 @@ import java.util.UUID;
 
 public class Cart {
     String id;
-    List<CartIem> items;
+    List<CartItem> items;
     int total;
 
     public Cart() {
@@ -21,17 +21,17 @@ public class Cart {
         this.id = id;
     }
 
-    public List<CartIem> getItems() {
+    public List<CartItem> getItems() {
         return items;
     }
 
-    public void setItems(List<CartIem> items) {
+    public void setItems(List<CartItem> items) {
         this.items = items;
     }
 
     public int getTotal() {
         this.total = 0;
-        for (CartIem item : this.items) {
+        for (CartItem item : this.items) {
             this.total += (int) (item.getProduct().getPrice() * item.getQuantity());
         }
         return total;
@@ -41,7 +41,7 @@ public class Cart {
         this.total = total;
     }
 
-    public void addItem(CartIem cartItem) {
+    public void addItem(CartItem cartItem) {
         this.items.add(cartItem);
         this.total += (int) (cartItem.getProduct().getPrice() * cartItem.getQuantity());
     }

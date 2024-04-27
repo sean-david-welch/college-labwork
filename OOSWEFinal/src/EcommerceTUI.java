@@ -14,7 +14,25 @@ public class EcommerceTUI {
 
     public void loginUser() {}
 
-    public void viewCart() {}
+    public void viewCart() {
+        List<CartItem> items = ecommerceService.viewCart();
+
+        System.out.println("Items in your cart:");
+        System.out.printf("%-30s %-10s %-10s%n", "Product Name", "Quantity", "Price");
+
+        for (CartItem item : items) {
+            Product product = item.getProduct();
+            System.out.printf("%-30s %-10d $%.2f%n",
+                    product.getName(),
+                    item.getQuantity(),
+                    product.getPrice() * item.getQuantity());
+        }
+
+        int subtotal = ecommerceService.getCartSubtotal();
+        System.out.println("Total: $" + subtotal);
+
+        scanner.nextInt();
+    }
 
     public void viewProducts() {
         List<Product> products = ecommerceService.viewProducts();
@@ -37,7 +55,7 @@ public class EcommerceTUI {
     }
 
     public void addProductToCart () {
-        this.viewProducts();
+        viewProducts();
 
         System.out.println("Enter the name of the product you want to add to the cart:");
         String productName = scanner.nextLine().trim();

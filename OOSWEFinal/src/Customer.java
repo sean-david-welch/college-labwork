@@ -15,6 +15,8 @@ public class Customer {
         this.shoppingCart = shoppingCart;
     }
 
+    public Customer() {}
+
     private final HashMap<String, String> registeredCustomers = new HashMap<>();
     private boolean isLoggedIn = false;
 

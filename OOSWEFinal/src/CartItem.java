@@ -1,9 +1,9 @@
-public class CartIem {
+public class CartItem {
     String id;
     Product product;
     int quantity;
 
-    public CartIem(String id, Product product, int quantity) {
+    public CartItem(String id, Product product, int quantity) {
         this.id = id;
         this.product = product;
         this.quantity = quantity;
