@@ -6,4 +6,6 @@ public class EcommerceService {
     public  EcommerceService(Scanner scanner) {
         this.scanner = scanner;
     }
+
+    public void ecommerceController() {}
 }
