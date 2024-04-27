@@ -17,12 +17,6 @@ public class EcommerceTUI {
         String password = scanner.nextLine();
 
         ecommerceService.registerUser(email, password);
-
-        try {
-            int input = Integer.parseInt(scanner.nextLine().trim());
-        } catch (NumberFormatException e) {
-            System.out.println("Invalid input. Please enter a valid number.");
-        }
     }
 
     public void loginUser() {
@@ -32,12 +26,6 @@ public class EcommerceTUI {
         String password = scanner.nextLine();
 
         ecommerceService.loginUser(email, password);
-
-        try {
-            int input = Integer.parseInt(scanner.nextLine().trim());
-        } catch (NumberFormatException e) {
-            System.out.println("Invalid input. Please enter a valid number.");
-        }
     }
 
     public void viewCart() {
@@ -60,12 +48,6 @@ public class EcommerceTUI {
             int subtotal = ecommerceService.getCartSubtotal();
             System.out.println("Total: $" + subtotal);
         }
-
-        try {
-            int input = Integer.parseInt(scanner.nextLine().trim());
-        } catch (NumberFormatException e) {
-            System.out.println("Invalid input. Please enter a valid number.");
-        }
     }
 
     public void viewProducts() {
@@ -77,30 +59,28 @@ public class EcommerceTUI {
         }
 
         System.out.println("Available Products:");
-        System.out.printf("%-10s %-30s %-50s %s%n", "ID", "Name", "Description", "Price");
-
+        int index = 1;
         for (Product product : products) {
-            System.out.printf("%-10s %-30s %-50s $%.2f%n",
-                    product.getId(),
+            System.out.printf("%d. Name: %-30s Description: %-50s Price: $%.2f%n",
+                    index++,
                     product.getName(),
                     product.getDescription(),
                     product.getPrice());
         }
-
-        try {
-            Integer.parseInt(scanner.nextLine().trim());
-        } catch (NumberFormatException e) {
-            System.out.println("Invalid input. Please enter a valid number.");
-        }
+        System.out.println("-------------------");
     }
+
 
     public void addProductToCart () {
         viewProducts();
 
         System.out.println("Enter the name of the product you want to add to the cart:");
         String productName = scanner.nextLine().trim();
+        System.out.println("-------------------");
+
 
         System.out.println("Enter the quantity:");
+        System.out.println("-------------------");
         int quantity;
         try {
             quantity = Integer.parseInt(scanner.nextLine().trim());
@@ -114,6 +94,7 @@ public class EcommerceTUI {
         }
 
         ecommerceService.addProductToCart(productName, quantity);
+        System.out.println("-------------------");
     }
 
     public void initiateCheckout() {
@@ -140,7 +121,7 @@ public class EcommerceTUI {
         this.viewMainOptions();
 
         while (true) {
-            String inputLine = scanner.nextLine();
+            String inputLine = scanner.nextLine().trim();
             int input = -1;
             try {
                 input = Integer.parseInt(inputLine);
@@ -182,4 +163,5 @@ public class EcommerceTUI {
             }
         }
     }
+
 }
