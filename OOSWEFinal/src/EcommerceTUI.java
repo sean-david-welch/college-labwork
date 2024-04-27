@@ -1,3 +1,4 @@
+import java.util.List;
 import java.util.Scanner;
 
 public class EcommerceTUI {
@@ -10,10 +11,53 @@ public class EcommerceTUI {
     }
 
     public void registerUser() {}
+
     public void loginUser() {}
+
     public void viewCart() {}
-    public void viewProducts() {}
-    public void addProductToCart () {}
+
+    public void viewProducts() {
+        List<Product> products = ecommerceService.viewProducts();
+
+        if (products.isEmpty()) {
+            System.out.println("No products available");
+            return;
+        }
+
+        System.out.println("Available Products:");
+        System.out.printf("%-10s %-30s %-50s %s%n", "ID", "Name", "Description", "Price");
+
+        for (Product product : products) {
+            System.out.printf("%-10s %-30s %-50s $%.2f%n",
+                    product.getId(),
+                    product.getName(),
+                    product.getDescription(),
+                    product.getPrice());
+        }
+    }
+
+    public void addProductToCart () {
+        this.viewProducts();
+
+        System.out.println("Enter the name of the product you want to add to the cart:");
+        String productName = scanner.nextLine().trim();
+
+        System.out.println("Enter the quantity:");
+        int quantity = 0;
+        try {
+            quantity = Integer.parseInt(scanner.nextLine().trim());
+            if (quantity <= 0) {
+                System.out.println("Quantity must be greater than zero.");
+                return;
+            }
+        } catch (NumberFormatException e) {
+            System.out.println("Invalid input for quantity. Please enter a number.");
+            return;
+        }
+
+        ecommerceService.addProductToCart(productName, quantity);
+    }
+
     public void initiateCheckout() {}
 
     private void viewMainOptions() {
