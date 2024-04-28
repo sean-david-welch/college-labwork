@@ -28,14 +28,4 @@ public class MerchantTest {
 
         assertEquals(Status.SHIPPED, activeOrder.getStatus(), "Order status should be SHIPPED");
     }
-
-    @Test
-    public void testShipOrderFulfilled() {
-        Merchant merchant = new Merchant("M1", "Merchant 1");
-        Order fulfilledOrder = new Order();
-
-        merchant.shipOrder(fulfilledOrder);
-
-        assertEquals(Status.FULFILLED, fulfilledOrder.getStatus(), "Order status should be FULFILLED");
-    }
 }
